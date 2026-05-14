@@ -101,7 +101,15 @@ All on `main`, all committed locally. No remote yet (we'll set up GitHub or anot
 
 Honestly? Nothing required. The sandbox provisions on Salesforce's side regardless of your computer.
 
-**Where the sandbox-ready email will arrive:** The Salesforce CLI authenticated as username `admin@sftsinc.com`, which is YOUR (Daniel's) user. The actual mailbox on that user record is **`timdstep@gmail.com`** — that's where the "Your sandbox dev is ready" notification will land. (`admin@sftsinc.com` is just a login identifier, not a real mailbox. Common Salesforce gotcha.)
+**Where the sandbox-ready email will arrive:** The Salesforce CLI authenticated as username `admin@sftsinc.com`, which is YOUR (Daniel's) user. The actual mailbox on that user record at the time of sandbox submission was **`timdstep@gmail.com`** — that's where the "Your sandbox dev is ready" notification will land. (`admin@sftsinc.com` is just a login identifier, not a real mailbox. Common Salesforce gotcha.)
+
+**Late Day 1 follow-up:** Daniel requested admin User.Email be changed from
+`timdstep@gmail.com` to `director@sftsinc.com` for future official notifications.
+The API update was accepted but the field shows as still pending. Salesforce
+sent a confirmation link (probably to both old and new addresses). Until Daniel
+clicks the link, future Salesforce emails for admin@sftsinc.com still go to
+`timdstep@gmail.com`. This does NOT affect the current sandbox-ready email
+(already in flight to timdstep@gmail.com).
 
 When you see that email tomorrow, run the resume sequence above and ping me. If you don't see the email by lunch tomorrow, run the status query in the resume sequence anyway — the email occasionally gets stuck.
 
