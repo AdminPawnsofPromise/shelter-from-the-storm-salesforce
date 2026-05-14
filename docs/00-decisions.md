@@ -338,6 +338,34 @@ and POSTs to the Salesforce REST API.
 
 ---
 
+## ADR-013 — Contact OWD already Private; no change required
+**Date:** 2026-05-14 (Day 2)
+**Status:** Accepted (verified in baseline retrieve)
+
+### Decision
+The Contact object's Organization-Wide Default sharing model is already
+`Private` (both internal and external) per the baseline retrieve from
+sandbox. The Day 2 task to set Contact OWD to Private is **already done**
+and requires no metadata change.
+
+### Why no change is needed
+- `force-app/main/default/objects/Contact/Contact.object-meta.xml`
+  line 355: `<sharingModel>Private</sharingModel>`
+- line 328: `<externalSharingModel>Private</externalSharingModel>`
+
+### Origin
+Likely set during the `caseman` managed-package install (which lists
+Contact as a client/survivor record and expects Private OWD). Standard
+Salesforce Contact OWD default is "Controlled by Parent."
+
+### Implication
+- VAWA confidentiality posture satisfied at the platform level
+- Sharing rules to be designed in Day 12 will EXPAND access from Private
+  baseline, not restrict from Public
+- Field-level security is the next layer to design (Day 12 polish)
+
+---
+
 ## Future entries
 
 Decisions made in subsequent days append here. Do not retroactively edit

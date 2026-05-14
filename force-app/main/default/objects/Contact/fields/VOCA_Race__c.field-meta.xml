@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VOCA_Race__c</fullName>
+    <description>Race for VOCA federal grant reporting. Multi-select per federal guidelines (a person can identify with multiple races). Values match the U.S. Census Bureau categories required by VOCA reporting.</description>
+    <externalId>false</externalId>
+    <label>Race (VOCA)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>American Indian or Alaska Native</fullName><default>false</default><label>American Indian or Alaska Native</label></value>
+            <value><fullName>Asian</fullName><default>false</default><label>Asian</label></value>
+            <value><fullName>Black or African American</fullName><default>false</default><label>Black or African American</label></value>
+            <value><fullName>Native Hawaiian or Other Pacific Islander</fullName><default>false</default><label>Native Hawaiian or Other Pacific Islander</label></value>
+            <value><fullName>White</fullName><default>false</default><label>White</label></value>
+            <value><fullName>Some Other Race</fullName><default>false</default><label>Some Other Race</label></value>
+            <value><fullName>Unknown</fullName><default>false</default><label>Unknown</label></value>
+            <value><fullName>Client Doesn't Know</fullName><default>false</default><label>Client Doesn't Know</label></value>
+            <value><fullName>Client Refused</fullName><default>false</default><label>Client Refused</label></value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>
