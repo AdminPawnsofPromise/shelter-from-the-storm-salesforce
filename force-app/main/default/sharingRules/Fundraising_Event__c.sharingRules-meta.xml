@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>SFTS_All_Internal_Read_Write_Fundraising_Events</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>All SFTS internal users (advocates, supervisors, admins) can read and edit each other''s Fundraising Events records. Required because event work is collaborative — board, staff, and volunteers all touch event records. External users (if any are added via Experience Cloud later) remain blocked by the Private OWD.</description>
+        <label>SFTS All Internal — Fundraising Events Read/Write</label>
+        <sharedTo>
+            <allInternalUsers>true</allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <allInternalUsers>true</allInternalUsers>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>
