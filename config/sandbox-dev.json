@@ -1,0 +1,5 @@
+{
+  "sandboxName": "dev",
+  "licenseType": "DEVELOPER",
+  "description": "Primary development sandbox for the Shelter from the Storm Salesforce build. Created 2026-05-14, Day 1. Used as the default target org throughout the build. Production deploys only after sandbox validation."
+}

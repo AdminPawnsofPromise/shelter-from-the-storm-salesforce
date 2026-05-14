@@ -119,10 +119,32 @@ These do NOT exist in the org yet — zero custom objects in the no-namespace zo
 - 0 records in `caseman__Assessment__c`, `caseman__Goal__c`, `pmdm__*__c` objects.
 - 0 custom org-local objects.
 
-## Concerns to address before Day 2
+## Concerns identified — Day 1 status
 
-1. **Timezone is Pacific (America/Los_Angeles), must change to Eastern (America/Indiana/Indianapolis).** Setup → Company Information. Easy fix, do Day 2.
-2. **`clientadvocate@sftsinc.com` is dormant** (no login since 2026-03-10) but holds the only NPC Case Management RUL. Decide whether to keep this user active, reassign the RUL, or repurpose.
-3. **Daniel's user (`director@sftsinc.com`) is on the "Program Management Standard User" profile.** He may not have all permissions needed to view/edit everything we'll build. We'll likely create a dedicated permission set ("SFTS Admin Override" or similar) and assign it to him.
-4. **Two sample records exist** (1 Intake, 1 Case). Confirm they're test data, not real, and decide whether to delete them in production or leave them alone.
-5. **Admin user `admin@sftsinc.com` is what the CLI is authenticated as.** This is the right account for build work. Daniel should keep `director@…` for normal day-to-day work.
+| # | Concern                                                                       | Status                                           |
+| - | ----------------------------------------------------------------------------- | ------------------------------------------------ |
+| 1 | Org timezone was Pacific (America/Los_Angeles)                                | **Fixed** — changed to America/Indiana/Indianapolis |
+| 2 | NPC Case Management RUL held by dormant user `clientadvocate@sftsinc.com` (Brittany Stephens) | **Fixed** — RUL reassigned to admin; Brittany's caseman permission sets removed |
+| 3 | Daniel's user on "Program Management Standard User" profile                   | Open — will address in Day 12 (permission sets / profiles / sharing) |
+| 4 | 1 sample Intake record + 1 sample Case record in production                   | Confirmed sample data; safe to ignore or delete later |
+| 5 | 11 Salesforce licenses vs 10 Power of Us in brief                             | Minor discrepancy, not blocking                  |
+
+## Production changes executed on Day 1
+
+All changes are reversible. Records modified are listed for audit.
+
+| Action                                                  | Record(s)                          |
+| ------------------------------------------------------- | ---------------------------------- |
+| Updated org timezone to `America/Indiana/Indianapolis`  | Organization `00Dam00001bxg8fEAA`  |
+| Removed `caseman__ManageCases` from Brittany Stephens   | PSA `0Paam00000gM6t2CAC` (deleted) |
+| Removed `caseman__CM_View` from Brittany Stephens       | PSA `0Paam00000gM6t1CAC` (deleted) |
+| Removed `caseman__CM_Manage` from Brittany Stephens     | PSA `0Paam00000gM6t0CAC` (deleted) |
+| Removed `caseman__CM_Deliver` from Brittany Stephens    | PSA `0Paam00000gM6szCAC` (deleted) |
+| Revoked NPC Case Management PSL from Brittany           | PSLA `2LAam000002kV4TGAU` (deleted) |
+| Granted NPC Case Management PSL to admin                | new PSLA created                   |
+| Assigned `caseman__ManageCases` permset to admin        | new PSA created                    |
+
+Brittany retains her base profile (Program Management Standard User) and her
+login is still active. She has lost NPC Case Management feature access
+specifically. If she becomes active again or another advocate is hired,
+the RUL and permission set can be reassigned at that time.
