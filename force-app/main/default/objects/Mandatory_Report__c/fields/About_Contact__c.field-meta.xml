@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>About_Contact__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The person the report is ABOUT (the alleged victim, the endangered adult, the child). Optional — if subject is unknown or anonymous, use Subject_Description__c text field instead.</description>
+    <externalId>false</externalId>
+    <label>About (Contact)</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Mandatory Reports About</relationshipLabel>
+    <relationshipName>Mandatory_Reports_About</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>SFTS_All_Internal_Read_Write_Financial_Counseling</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>All SFTS internal users (advocates, supervisors, admins) can read and edit each other''s Financial Counseling Sessions records. Required because advocates rotate clients and supervisors need oversight. External users (if any are added via Experience Cloud later) remain blocked by the Private OWD.</description>
+        <label>SFTS All Internal — Financial Counseling Sessions Read/Write</label>
+        <sharedTo>
+            <allInternalUsers>true</allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <allInternalUsers>true</allInternalUsers>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Q18_Capable_Of_Killing__c</fullName>
+    <description>Original Campbell wording: "Do you believe he is capable of killing you?" Self-perception of lethality is a strong independent predictor.</description>
+    <externalId>false</externalId>
+    <label>Q18: Partner Capable of Killing You</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>Yes</fullName><default>false</default><label>Yes</label></value>
+            <value><fullName>No</fullName><default>false</default><label>No</label></value>
+            <value><fullName>Unknown</fullName><default>false</default><label>Unknown / Unsure</label></value>
+            <value><fullName>Declined</fullName><default>false</default><label>Declined to Answer</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

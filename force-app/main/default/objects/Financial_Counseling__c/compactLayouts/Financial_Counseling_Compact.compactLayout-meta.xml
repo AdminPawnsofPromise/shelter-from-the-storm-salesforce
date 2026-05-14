@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Financial_Counseling_Compact</fullName>
+    <fields>Name</fields>
+    <fields>Contact__c</fields>
+    <fields>Checkpoint__c</fields>
+    <fields>Session_Date__c</fields>
+    <fields>Budgeting_Understanding__c</fields>
+    <label>Financial Counseling Compact</label>
+</CompactLayout>

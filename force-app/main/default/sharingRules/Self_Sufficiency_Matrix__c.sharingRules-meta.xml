@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>SFTS_All_Internal_Read_Write_SSM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>All SFTS internal users (advocates, supervisors, admins) can read and edit each other''s Self-Sufficiency Matrix Assessments records. Required because advocates take assessments for each others' clients and outcomes data feeds organization-wide funder reports. External users (if any are added via Experience Cloud later) remain blocked by the Private OWD.</description>
+        <label>SFTS All Internal — Self-Sufficiency Matrix Assessments Read/Write</label>
+        <sharedTo>
+            <allInternalUsers>true</allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <allInternalUsers>true</allInternalUsers>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>caseman__Incident_Compact_Layout</fullName>
+    <fields>Subject</fields>
+    <fields>ContactId</fields>
+    <fields>caseman__IncidentDateTime__c</fields>
+    <fields>caseman__IncidentType__c</fields>
+    <fields>caseman__Severity__c</fields>
+    <fields>Status</fields>
+    <label>Incident Compact Layout</label>
+</CompactLayout>

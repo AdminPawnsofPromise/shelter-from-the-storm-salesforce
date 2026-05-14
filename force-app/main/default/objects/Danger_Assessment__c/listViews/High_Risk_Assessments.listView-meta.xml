@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>High_Risk_Assessments</fullName>
+    <columns>NAME</columns>
+    <columns>Contact__c</columns>
+    <columns>Assessment_DateTime__c</columns>
+    <columns>Total_Score__c</columns>
+    <columns>Danger_Tier__c</columns>
+    <columns>Assessor__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Total_Score__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>14</value>
+    </filters>
+    <label>High-Risk Assessments (Severe/Extreme)</label>
+</ListView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>caseman__Client_Case_Compact_Layout</fullName>
+    <fields>Subject</fields>
+    <fields>ContactId</fields>
+    <fields>CreatedDate</fields>
+    <fields>caseman__WatchList__c</fields>
+    <fields>Status</fields>
+    <fields>OwnerId</fields>
+    <label>Client Case Compact Layout</label>
+</CompactLayout>

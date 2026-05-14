@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Donation_Type__c</fullName>
+    <description>How the donation was given. In-kind donations use fair market value in Amount__c.</description>
+    <label>Donation Type</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>Cash</fullName><default>false</default><label>Cash</label></value>
+            <value><fullName>Check</fullName><default>true</default><label>Check</label></value>
+            <value><fullName>Credit Card</fullName><default>false</default><label>Credit Card</label></value>
+            <value><fullName>ACH / Bank Transfer</fullName><default>false</default><label>ACH / Bank Transfer</label></value>
+            <value><fullName>In-Kind</fullName><default>false</default><label>In-Kind</label></value>
+            <value><fullName>Stock</fullName><default>false</default><label>Stock</label></value>
+            <value><fullName>Cryptocurrency</fullName><default>false</default><label>Cryptocurrency</label></value>
+            <value><fullName>Other</fullName><default>false</default><label>Other</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

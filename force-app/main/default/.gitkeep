@@ -1,0 +1,4 @@
+# Placeholder so git tracks the empty force-app/main/default tree.
+# Salesforce-CLI will create the standard metadata subfolders here
+# (objects/, classes/, flows/, layouts/, permissionsets/, etc.) as
+# we retrieve and build.

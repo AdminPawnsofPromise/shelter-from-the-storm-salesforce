@@ -1,0 +1,29 @@
+# Files to exclude from sf project retrieve / sf project deploy.
+# Different from .gitignore: this controls what sf sees, not git.
+
+# Standard ignores
+package.xml
+**/jsconfig.json
+**/.eslintrc.json
+
+# OS junk
+**/.DS_Store
+**/Thumbs.db
+
+# Don't deploy our docs or scripts folder
+docs/
+scripts/
+
+# Don't deploy local Claude/editor state
+.claude/
+.vscode/
+
+# Installed managed packages are already installed in prod with matching
+# versions. Deploying their metadata fails because retrieved versions are
+# missing fields the deploy API now requires (e.g. activateRSS). Per the
+# cutover plan, package metadata is informational only — don't push it.
+**/installedPackages/
+
+# (Previous entry for Log_Service_Delivery quick action — RESOLVED. Element
+# name was targetParentField, not targetField. File is now correct and
+# included in deploys.)

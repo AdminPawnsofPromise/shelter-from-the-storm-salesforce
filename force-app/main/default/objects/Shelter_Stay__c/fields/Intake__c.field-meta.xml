@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Intake__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The caseman__Intake__c record that authorized this stay. Optional — walk-ins may not have a prior Intake.</description>
+    <externalId>false</externalId>
+    <label>Originating Intake</label>
+    <referenceTo>caseman__Intake__c</referenceTo>
+    <relationshipLabel>Shelter Stays</relationshipLabel>
+    <relationshipName>Shelter_Stays</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

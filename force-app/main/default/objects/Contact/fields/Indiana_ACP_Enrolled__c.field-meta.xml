@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Indiana_ACP_Enrolled__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Whether the client is enrolled in the Indiana Address Confidentiality Program. When TRUE, the client's actual address must be suppressed in all displays and reports; use the ACP substitute address only.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indiana ACP provides a substitute address to keep survivors safe. NEVER display the real mailing address when this is checked.</inlineHelpText>
+    <label>Indiana ACP Enrolled</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

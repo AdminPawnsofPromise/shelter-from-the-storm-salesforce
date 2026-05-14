@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referred_To_Agency__c</fullName>
+    <description>Name of the agency or organization the client was referred to.</description>
+    <label>Referred To (Agency)</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+</CustomField>

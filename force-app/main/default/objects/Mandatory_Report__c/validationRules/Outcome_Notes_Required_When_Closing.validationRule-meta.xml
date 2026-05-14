@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Outcome_Notes_Required_When_Closing</fullName>
+    <active>true</active>
+    <description>When marking a Mandatory Report with a terminal outcome (Closed, Substantiated, Unsubstantiated, Screened Out), Outcome_Notes is required for audit defensibility. Reports must have a written reason for their disposition.</description>
+    <errorConditionFormula>AND(
+  OR(
+    ISPICKVAL(Outcome_Status__c, "Closed"),
+    ISPICKVAL(Outcome_Status__c, "Substantiated"),
+    ISPICKVAL(Outcome_Status__c, "Unsubstantiated"),
+    ISPICKVAL(Outcome_Status__c, "Screened Out")
+  ),
+  ISBLANK(Outcome_Notes__c)
+)</errorConditionFormula>
+    <errorDisplayField>Outcome_Notes__c</errorDisplayField>
+    <errorMessage>To close out a Mandatory Report (Closed / Substantiated / Unsubstantiated / Screened Out), you must add Outcome Notes describing what happened with the agency.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>Where this referral is in the lifecycle.</description>
+    <label>Status</label>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>Pending</fullName><default>true</default><label>Pending</label></value>
+            <value><fullName>Initiated</fullName><default>false</default><label>Initiated</label></value>
+            <value><fullName>Engaged</fullName><default>false</default><label>Engaged</label></value>
+            <value><fullName>Declined by Client</fullName><default>false</default><label>Declined by Client</label></value>
+            <value><fullName>Declined by Agency</fullName><default>false</default><label>Declined by Agency</label></value>
+            <value><fullName>Closed - Success</fullName><default>false</default><label>Closed - Success</label></value>
+            <value><fullName>Closed - Unable to Connect</fullName><default>false</default><label>Closed - Unable to Connect</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

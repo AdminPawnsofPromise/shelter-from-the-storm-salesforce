@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Issue__c</fullName>
+    <description>The primary type of violence or victimization being reported by the caller. Use the closest match; multiple issues can be captured in Outcome_Notes.</description>
+    <externalId>false</externalId>
+    <label>Primary Issue</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>Domestic Violence</fullName><default>false</default><label>Domestic Violence</label></value>
+            <value><fullName>Sexual Assault</fullName><default>false</default><label>Sexual Assault</label></value>
+            <value><fullName>Stalking</fullName><default>false</default><label>Stalking</label></value>
+            <value><fullName>Human Trafficking</fullName><default>false</default><label>Human Trafficking</label></value>
+            <value><fullName>Teen Dating Violence</fullName><default>false</default><label>Teen Dating Violence</label></value>
+            <value><fullName>Other</fullName><default>false</default><label>Other</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

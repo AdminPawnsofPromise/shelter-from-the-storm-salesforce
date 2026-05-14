@@ -1,0 +1,2 @@
+# Helper scripts (PowerShell, bash, soql .apex anonymous, etc.).
+# Excluded from sf project deploy via .forceignore.

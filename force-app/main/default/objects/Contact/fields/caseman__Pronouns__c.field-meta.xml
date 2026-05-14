@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>caseman__Pronouns__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The pronoun set used by the client to refer to themself.</description>
+    <inlineHelpText>The pronoun set used by the client to refer to themself.</inlineHelpText>
+    <label>Pronouns</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>she/her/hers</fullName>
+                <default>false</default>
+                <label>she/her/hers</label>
+            </value>
+            <value>
+                <fullName>he/him/his</fullName>
+                <default>false</default>
+                <label>he/him/his</label>
+            </value>
+            <value>
+                <fullName>they/them/theirs</fullName>
+                <default>false</default>
+                <label>they/them/theirs</label>
+            </value>
+            <value>
+                <fullName>other/ask me</fullName>
+                <default>false</default>
+                <label>other/ask me</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

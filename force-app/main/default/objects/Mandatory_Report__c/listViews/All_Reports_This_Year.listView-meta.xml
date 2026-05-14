@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Reports_This_Year</fullName>
+    <columns>NAME</columns>
+    <columns>Report_Type__c</columns>
+    <columns>Report_DateTime__c</columns>
+    <columns>About_Contact__c</columns>
+    <columns>Reporting_Agency_Name__c</columns>
+    <columns>Outcome_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Report_DateTime__c</field>
+        <operation>equals</operation>
+        <value>THIS_YEAR</value>
+    </filters>
+    <label>All Reports This Year</label>
+</ListView>

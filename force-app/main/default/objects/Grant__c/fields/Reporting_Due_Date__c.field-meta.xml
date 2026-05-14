@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reporting_Due_Date__c</fullName>
+    <description>When the funder requires a report on how the grant funds were used. Missing these can disqualify SFTS from future awards.</description>
+    <inlineHelpText>If recurring, enter the next due date. Update after each report is submitted.</inlineHelpText>
+    <label>Reporting Due Date</label>
+    <type>Date</type>
+</CustomField>

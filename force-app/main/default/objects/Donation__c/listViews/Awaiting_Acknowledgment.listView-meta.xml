@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Awaiting_Acknowledgment</fullName>
+    <columns>NAME</columns>
+    <columns>Donor__c</columns>
+    <columns>Amount__c</columns>
+    <columns>Donation_Date__c</columns>
+    <columns>Acknowledgment_Sent__c</columns>
+    <booleanFilter>1 AND 2</booleanFilter>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Acknowledgment_Sent__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Amount__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>250</value>
+    </filters>
+    <label>Awaiting Acknowledgment (>$250)</label>
+</ListView>

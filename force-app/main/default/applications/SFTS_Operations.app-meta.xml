@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#2C3E36</headerColor>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <description>Operations app for the Shelter from the Storm case management system. Contains all custom SFTS objects plus the Contact and Program objects needed for daily work.</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>SFTS Operations</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>Hotline_Call__c</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>Shelter_Stay__c</tabs>
+    <tabs>Danger_Assessment__c</tabs>
+    <tabs>Mandatory_Report__c</tabs>
+    <tabs>Financial_Counseling__c</tabs>
+    <tabs>Self_Sufficiency_Matrix__c</tabs>
+    <tabs>Referral__c</tabs>
+    <tabs>standard-Case</tabs>
+    <tabs>pmdm__Program__c</tabs>
+    <tabs>pmdm__ServiceDelivery__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

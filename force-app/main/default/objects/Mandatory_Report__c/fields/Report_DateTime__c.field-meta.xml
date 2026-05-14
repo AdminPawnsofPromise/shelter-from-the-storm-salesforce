@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Report_DateTime__c</fullName>
+    <description>When the report was actually made to the authority. Required. This is the legal "time of report" for statutory compliance.</description>
+    <externalId>false</externalId>
+    <label>Report Date/Time</label>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

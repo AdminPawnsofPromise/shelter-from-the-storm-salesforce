@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sponsorship_Tier_Compact</fullName>
+    <fields>Name</fields>
+    <fields>Fundraising_Event__c</fields>
+    <fields>Tier_Level__c</fields>
+    <fields>Tier_Cost__c</fields>
+    <fields>Slots_Available__c</fields>
+    <label>Sponsorship Tier Compact</label>
+</CompactLayout>

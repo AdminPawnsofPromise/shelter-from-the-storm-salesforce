@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>director@sftsinc.com</contactEmail>
+    <label>SFTS Website Integration v2</label>
+    <oauthConfig>
+        <callbackUrl>https://login.salesforce.com/services/oauth2/success</callbackUrl>
+        <certificate>MIID2TCCAsGgAwIBAgIUHx0IJUiH18ui9Qn80/gaQsTpOvUwDQYJKoZIhvcNAQELBQAwfDELMAkGA1UEBhMCVVMxEDAOBgNVBAgMB0luZGlhbmExEzARBgNVBAcMCkdyZWVuZmllbGQxIzAhBgNVBAoMGlNoZWx0ZXIgRnJvbSB0aGUgU3Rvcm0gSW5jMSEwHwYDVQQDDBhzZnRzLXdlYnNpdGUtaW50ZWdyYXRpb24wHhcNMjYwNTE0MTQxMzE4WhcNMzYwNTExMTQxMzE4WjB8MQswCQYDVQQGEwJVUzEQMA4GA1UECAwHSW5kaWFuYTETMBEGA1UEBwwKR3JlZW5maWVsZDEjMCEGA1UECgwaU2hlbHRlciBGcm9tIHRoZSBTdG9ybSBJbmMxITAfBgNVBAMMGHNmdHMtd2Vic2l0ZS1pbnRlZ3JhdGlvbjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKfc4xgM4NbZysFH7onAPBRanjXkxrnweBjYXx+BhZm0PzjYG1pvq1uBKfhOGEeoPFdBbrU0f8ecWg+ouTZ6gyX8dr1oJRQZ0+81/j60uO0pSsbc0oseIqaFK0TlMLN6rGU2foeAhnY10Ht1uhHnhkHwJr0qlcq8DEns0g4BPLDNeFQpUIitvJwE6zsMcURKE/qnZrlJod/hbKnLEkRKCqn//e66eALIynMvsFQnwvmagSOGsLRMyD/t6o78phOvEJJ6OVtxCtBnc/T5qKpvjKXusfFb7OL2SJgGsEI9gugx0zhgZS+qNpOWM79MHhJfrFFm41kVS68aB2b5So0c3oECAwEAAaNTMFEwHQYDVR0OBBYEFEsIvRnVrMtwJ2hb1bx9m+LUgrTpMB8GA1UdIwQYMBaAFEsIvRnVrMtwJ2hb1bx9m+LUgrTpMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAJMeVRpOLgQ0IIP3QWq/tlPxy0h4fBpsbcExLuOnwJUlQAJmR1zpecuJUfwqlC7mw8McWTvqcp13aXk0bLaacI1S9XpispKsgkIE/QlxOwyxFhcaAfohspalwb6VBj8ZYp3JXZUPv8ssh6H43aTgvVaIIT9Xil2PFN0PqxoSn1FfuNJBg0xfaC1DiSKJodIxcJgyYak5eAnPVNksnnCK/q457lvFN7MtNvHhrnbrVNbtHUkbFWKfmjDa2XzJFhbdyOOgJCdDu3UJlaIIwUBY7zJfMA5raz0/iGR1Y6qKsdlW0fL4TPesALlcHOaKp0aE22mFrizQx5/hab4fP/hNdyU=</certificate>
+        <isAdminApproved>true</isAdminApproved>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>true</isSecretRequiredForRefreshToken>
+        <scopes>Api</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+</ConnectedApp>

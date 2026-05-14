@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>1_In_Crisis</fullName>
+        <default>false</default>
+        <label>1 - In Crisis</label>
+    </customValue>
+    <customValue>
+        <fullName>2_Vulnerable</fullName>
+        <default>false</default>
+        <label>2 - Vulnerable</label>
+    </customValue>
+    <customValue>
+        <fullName>3_Stable</fullName>
+        <default>false</default>
+        <label>3 - Stable</label>
+    </customValue>
+    <customValue>
+        <fullName>4_Building_Capacity</fullName>
+        <default>false</default>
+        <label>4 - Building Capacity</label>
+    </customValue>
+    <customValue>
+        <fullName>5_Thriving</fullName>
+        <default>false</default>
+        <label>5 - Thriving</label>
+    </customValue>
+    <description>Standard 5-point Self-Sufficiency Matrix scoring scale used across all life domains. 1=In Crisis, 2=Vulnerable, 3=Stable, 4=Building Capacity, 5=Thriving. Per the Indiana DV Self-Sufficiency Matrix 2013 standard.</description>
+    <masterLabel>SFTS Self-Sufficiency Scale</masterLabel>
+    <sorted>true</sorted>
+</GlobalValueSet>

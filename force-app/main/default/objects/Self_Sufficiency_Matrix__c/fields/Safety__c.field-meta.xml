@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Safety__c</fullName>
+    <description>Safety from the abuser and risk of further harm. The most DV-specific domain. Scored on the standard 5-point self-sufficiency scale.</description>
+    <label>Safety from Abuse</label>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>SFTS_Self_Sufficiency_Scale</valueSetName>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Acknowledgment_Sent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Has the tax-deductible donation acknowledgment letter been sent to the donor? Required for donations over $250 per IRS rules.</description>
+    <label>Acknowledgment Sent</label>
+    <type>Checkbox</type>
+</CustomField>

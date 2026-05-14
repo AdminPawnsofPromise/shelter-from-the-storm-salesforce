@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SFTS_Impact__c</fullName>
+    <description>How Shelter from the Storm helped the client (primarily captured at End checkpoint, also relevant at Middle for course-correction). Useful for outcomes reporting to funders.</description>
+    <label>How SFTS Helped</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

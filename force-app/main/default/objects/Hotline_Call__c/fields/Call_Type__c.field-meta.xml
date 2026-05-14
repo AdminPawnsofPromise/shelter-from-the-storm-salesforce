@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Call_Type__c</fullName>
+    <description>Functional category of the call.</description>
+    <externalId>false</externalId>
+    <label>Call Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>Crisis</fullName><default>false</default><label>Crisis</label></value>
+            <value><fullName>Information Only</fullName><default>false</default><label>Information Only</label></value>
+            <value><fullName>Referral</fullName><default>false</default><label>Referral</label></value>
+            <value><fullName>Shelter Inquiry</fullName><default>false</default><label>Shelter Inquiry</label></value>
+            <value><fullName>Other</fullName><default>false</default><label>Other</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

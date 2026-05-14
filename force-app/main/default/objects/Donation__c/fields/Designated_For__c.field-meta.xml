@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Designated_For__c</fullName>
+    <description>Where the donor designated the funds. Affects how the donation is recorded against grant restrictions and 990 categorization.</description>
+    <label>Designated For</label>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>General Operating</fullName><default>true</default><label>General Operating</label></value>
+            <value><fullName>Emergency Shelter</fullName><default>false</default><label>Emergency Shelter</label></value>
+            <value><fullName>Long-Term Housing</fullName><default>false</default><label>Long-Term Housing</label></value>
+            <value><fullName>Programs</fullName><default>false</default><label>Programs</label></value>
+            <value><fullName>Capital Campaign</fullName><default>false</default><label>Capital Campaign</label></value>
+            <value><fullName>Event Sponsorship</fullName><default>false</default><label>Event Sponsorship</label></value>
+            <value><fullName>Other</fullName><default>false</default><label>Other</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

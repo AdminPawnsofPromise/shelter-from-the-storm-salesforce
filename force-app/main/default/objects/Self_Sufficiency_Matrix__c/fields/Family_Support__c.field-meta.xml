@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Family_Support__c</fullName>
+    <description>Support network: family, friends, community connections. Scored on the standard 5-point self-sufficiency scale.</description>
+    <label>Family / Social Support</label>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>SFTS_Self_Sufficiency_Scale</valueSetName>
+    </valueSet>
+</CustomField>

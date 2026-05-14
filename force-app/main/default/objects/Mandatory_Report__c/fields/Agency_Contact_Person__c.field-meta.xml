@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agency_Contact_Person__c</fullName>
+    <description>Name of the intake worker, dispatcher, or contact at the receiving agency (if known).</description>
+    <externalId>false</externalId>
+    <label>Agency Contact Person</label>
+    <length>100</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

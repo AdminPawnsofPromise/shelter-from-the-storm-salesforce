@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Intake_Initiated__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>If the call resulted in starting a formal intake, link to the resulting caseman__Intake__c record.</description>
+    <externalId>false</externalId>
+    <label>Intake Initiated</label>
+    <referenceTo>caseman__Intake__c</referenceTo>
+    <relationshipLabel>Hotline Calls (Originating)</relationshipLabel>
+    <relationshipName>Hotline_Calls_Originating</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

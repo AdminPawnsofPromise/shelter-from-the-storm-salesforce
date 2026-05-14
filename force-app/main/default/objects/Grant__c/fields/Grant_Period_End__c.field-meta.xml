@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Grant_Period_End__c</fullName>
+    <description>End of the period the grant funds are designated to cover.</description>
+    <label>Grant Period End</label>
+    <type>Date</type>
+</CustomField>

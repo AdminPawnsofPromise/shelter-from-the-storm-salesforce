@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>High_Risk_Calls</fullName>
+    <columns>NAME</columns>
+    <columns>Caller_Type__c</columns>
+    <columns>Primary_Issue__c</columns>
+    <columns>Imminent_Danger_Indicated__c</columns>
+    <columns>Mandatory_Report_Triggered__c</columns>
+    <columns>Outcome__c</columns>
+    <columns>Call_Start_DateTime__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Imminent_Danger_Indicated__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>High-Risk Calls (Imminent Danger)</label>
+</ListView>

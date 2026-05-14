@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Caller_Anonymous__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Explicitly flag this call as anonymous. When true, Contact and Caller_Name should generally be blank.</description>
+    <externalId>false</externalId>
+    <label>Caller Anonymous</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

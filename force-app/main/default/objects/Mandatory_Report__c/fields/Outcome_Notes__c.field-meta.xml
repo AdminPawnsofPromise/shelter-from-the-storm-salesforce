@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Outcome_Notes__c</fullName>
+    <description>Follow-up notes about the agency's response, investigation findings, or final disposition.</description>
+    <externalId>false</externalId>
+    <label>Outcome Notes</label>
+    <length>32768</length>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <description>Before-save record-triggered flow on Danger_Assessment__c. If Assessor__c is blank when a record is created, defaults it to the current user. Manual override preserved if set.</description>
+    <environments>Default</environments>
+    <interviewLabel>Default Assessor on Danger Assessment {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Default Assessor on Danger Assessment</label>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Set_Assessor_To_Current_User</targetReference>
+        </connector>
+        <filterFormula>ISBLANK({!$Record.Assessor__c})</filterFormula>
+        <object>Danger_Assessment__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <assignments>
+        <name>Set_Assessor_To_Current_User</name>
+        <label>Set Assessor to Current User</label>
+        <locationX>176</locationX>
+        <locationY>120</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Assessor__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <status>Active</status>
+</Flow>

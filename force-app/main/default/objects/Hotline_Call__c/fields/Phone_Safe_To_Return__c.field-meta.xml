@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phone_Safe_To_Return__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Critical safety field. When TRUE, an advocate may call this number back. When FALSE (or blank), DO NOT call back — abuser may have access to the phone.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Only check this box if the caller has confirmed it is SAFE to call them back. When in doubt, leave unchecked.</inlineHelpText>
+    <label>Phone Safe to Return</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
