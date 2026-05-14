@@ -105,4 +105,8 @@
         <field>Hotline_Call__c.Primary_Issue__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <tabSettings>
+        <tab>Hotline_Call__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>

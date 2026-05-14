@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customObject>true</customObject>
+    <description>Hotline Call records — every call to the SFTS 24/7 hotline.</description>
+    <motif>Custom72: Phone</motif>
+</CustomTab>

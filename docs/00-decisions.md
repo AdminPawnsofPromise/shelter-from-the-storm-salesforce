@@ -255,6 +255,30 @@ Field history tracking enabled on key fields for audit defensibility.
 
 ---
 
+## ADR-011 — SFTS service-area counties: Marion, Shelby, Johnson, Hancock
+**Date:** 2026-05-14 (Day 2)
+**Status:** Accepted (provided by Daniel)
+
+### Decision
+SFTS's primary service area consists of four Indiana counties:
+**Marion, Shelby, Johnson, Hancock** (south/east Indianapolis metro).
+
+### Use
+- `Hotline_Call__c.In_Service_Area__c` — currently a manual checkbox.
+  Will be augmented (next deploy) with a parallel formula field
+  `Auto_In_Service_Area__c` = TRUE when `Caller_County__c` is in the
+  service-area list.
+- `Contact.In_Service_Area__c` — same pattern based on
+  `Indiana_County_of_Residence__c`.
+- ICJI reporting will use this list to categorize "in-area" vs
+  "out-of-area" service deliveries.
+
+### Future
+If SFTS expands its service area (new counties added), update this ADR
+with a new entry that supersedes, and update both formula fields.
+
+---
+
 ## Future entries
 
 Decisions made in subsequent days append here. Do not retroactively edit
