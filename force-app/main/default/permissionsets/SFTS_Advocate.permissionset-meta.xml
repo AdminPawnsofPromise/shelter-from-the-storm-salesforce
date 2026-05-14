@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>SFTS_Operations</application>
+        <visible>true</visible>
+    </applicationVisibilities>
     <description>SFTS frontline advocates. Read/edit on Hotline_Call, Shelter_Stay, Danger_Assessment, Mandatory_Report, and Contact PII fields. No delete (preserves audit). For admin access use SFTS_Build_All_Access.</description>
     <fieldPermissions>
         <editable>true</editable>

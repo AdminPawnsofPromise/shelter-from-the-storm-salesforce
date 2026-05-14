@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>SFTS_Operations</application>
+        <visible>true</visible>
+    </applicationVisibilities>
     <description>Full read/edit access to all SFTS-built custom objects and fields. Assign to build admins. This permission set is updated as new objects and fields are added during the build.</description>
     <fieldPermissions>
         <editable>true</editable>
