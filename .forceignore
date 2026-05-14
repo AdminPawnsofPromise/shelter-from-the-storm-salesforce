@@ -17,3 +17,16 @@ scripts/
 # Don't deploy local Claude/editor state
 .claude/
 .vscode/
+
+# Installed managed packages are already installed in prod with matching
+# versions. Deploying their metadata fails because retrieved versions are
+# missing fields the deploy API now requires (e.g. activateRSS). Per the
+# cutover plan, package metadata is informational only — don't push it.
+**/installedPackages/
+
+# Log_Service_Delivery quick action: deployed to sandbox via UI on Day 6 but
+# the local metadata file is missing the correct relationship element
+# (`targetParentField` vs `targetField`). Excluded from deploys until the
+# correct structure is determined. Tracked as follow-up; not blocking the
+# website-integration cutover.
+force-app/main/default/quickActions/Contact.Log_Service_Delivery.quickAction-meta.xml
