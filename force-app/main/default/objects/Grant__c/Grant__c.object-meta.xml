@@ -41,6 +41,7 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Grant_Compact</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Grant applications and awards. Tracks pipeline (researching -> drafting -> submitted -> awarded/declined), amounts requested vs awarded, grant period, and reporting due dates. Per the Drive crawl: SFTS works with BRCF, Wortman Family Foundation, Tindall Farm Trust, State Farm, United Way, and others — each with separate deadlines and reporting cadences.</description>
     <enableActivities>true</enableActivities>

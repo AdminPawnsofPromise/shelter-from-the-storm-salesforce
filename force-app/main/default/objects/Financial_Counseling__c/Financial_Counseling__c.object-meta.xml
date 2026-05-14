@@ -41,6 +41,7 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Financial_Counseling_Compact</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Tracks financial counseling sessions with shelter clients. Per SFTS workflow, financial counseling occurs at three checkpoints during a client's stay: beginning, middle, and end. Each session captures goals, current position, recommended services, and SFTS impact.</description>
     <enableActivities>true</enableActivities>

@@ -41,6 +41,7 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SSM_Compact</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Standardized survivor self-sufficiency assessment across 10 life domains, scored 1-5. Per the Indiana DV Self-Sufficiency Matrix 2013 model. Run at intake, mid-program, and exit to track outcomes for funder reporting.</description>
     <enableActivities>true</enableActivities>

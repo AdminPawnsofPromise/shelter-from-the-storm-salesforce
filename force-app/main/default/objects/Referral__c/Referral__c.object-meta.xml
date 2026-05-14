@@ -41,6 +41,7 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Referral_Compact</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Outbound referrals from SFTS to outside agencies (legal aid, mental health, housing, etc.). Captures who, why, status, and outcome. Per the BOHCC Outside Agency Referral Form workflow.</description>
     <enableActivities>true</enableActivities>

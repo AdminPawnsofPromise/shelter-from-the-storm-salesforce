@@ -41,6 +41,7 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Sponsorship_Tier_Compact</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Sponsorship tier definitions per event per year. Replaces the per-year sponsorship xlsx files in the Drive (2023, 2024 Sponsorship Levels). Each row is one tier (Gold, Silver, etc.) at one event in one year, with associated cost + benefits.</description>
     <enableActivities>false</enableActivities>

@@ -41,6 +41,7 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Fundraising_Event_Compact</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Annual SFTS fundraising events (Cowboy Ball, Steak 'n Bake 'n, Chili Cookoff, Purse Bingo, Hancock County Community Night, etc.). Tracks revenue, expenses, attendance, status. Donations received at an event link via Donation__c.Source_Event__c (future). Avoids name collision with the standard Salesforce Event (calendar) object.</description>
     <enableActivities>true</enableActivities>

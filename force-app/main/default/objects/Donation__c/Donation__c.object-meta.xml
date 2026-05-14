@@ -41,6 +41,7 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Donation_Compact</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Donations received by SFTS from individuals, businesses, foundations, etc. Captures amount, type, designation, acknowledgment status. Foundation for fundraising-side tracking, donor pipelines, and 990 prep.</description>
     <enableActivities>true</enableActivities>

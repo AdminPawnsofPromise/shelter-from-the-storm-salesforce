@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Donation_Compact</fullName>
+    <fields>Name</fields>
+    <fields>Donor__c</fields>
+    <fields>Amount__c</fields>
+    <fields>Donation_Date__c</fields>
+    <fields>Donation_Type__c</fields>
+    <fields>Acknowledgment_Sent__c</fields>
+    <label>Donation Compact</label>
+</CompactLayout>
