@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Outcome_Required_To_End_Call</fullName>
+    <active>true</active>
+    <description>Cannot set Call_End_DateTime without choosing an Outcome. Prevents calls from being silently abandoned without outcome data, which would corrupt VOCA reporting.</description>
+    <errorConditionFormula>AND(
+  NOT(ISBLANK(Call_End_DateTime__c)),
+  ISBLANK(TEXT(Outcome__c))
+)</errorConditionFormula>
+    <errorDisplayField>Outcome__c</errorDisplayField>
+    <errorMessage>You must choose an Outcome before closing this hotline call. If you don't have outcome details, use "Other" and explain in Outcome Notes.</errorMessage>
+</ValidationRule>

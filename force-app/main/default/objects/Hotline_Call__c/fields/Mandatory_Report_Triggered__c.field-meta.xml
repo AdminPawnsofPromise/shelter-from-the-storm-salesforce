@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mandatory_Report_Triggered__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Whether this call triggered a mandatory report (APS for endangered adult, DCS for child abuse, etc.). When checked, advocate must create a Mandatory_Report__c record and link it.</description>
+    <externalId>false</externalId>
+    <label>Mandatory Report Triggered</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
