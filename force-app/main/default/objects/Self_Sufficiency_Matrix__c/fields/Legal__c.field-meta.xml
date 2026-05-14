@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Legal__c</fullName>
+    <description>Legal status, pending matters, access to legal assistance (protection orders, custody, immigration, etc.). Scored on the standard 5-point self-sufficiency scale.</description>
+    <label>Legal</label>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>SFTS_Self_Sufficiency_Scale</valueSetName>
+    </valueSet>
+</CustomField>
