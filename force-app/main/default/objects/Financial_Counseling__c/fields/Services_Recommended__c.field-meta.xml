@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Services_Recommended__c</fullName>
+    <description>Services the client says they need + services the counselor recommends to help the client meet their goals.</description>
+    <label>Services Needed / Recommended</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

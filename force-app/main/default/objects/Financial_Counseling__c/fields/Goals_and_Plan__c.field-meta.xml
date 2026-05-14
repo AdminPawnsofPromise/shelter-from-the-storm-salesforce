@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Goals_and_Plan__c</fullName>
+    <description>Client's financial goals, job goals, and plan to achieve them. Captures the "where do you want to be" and "how will you get there" piece of the counseling session.</description>
+    <label>Goals and Plan</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
+</CustomField>
