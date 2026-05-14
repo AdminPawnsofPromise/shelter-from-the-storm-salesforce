@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Score__c</fullName>
+    <description>Sum of "Yes" answers across all 20 Campbell DA questions. Unanswered, Unknown, Declined, and N/A questions do not contribute to the score. The unweighted Campbell DA-20 score is the count of Yes answers.</description>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(Q01_Violence_Increased__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q02_Owns_Gun__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q03_You_Left__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q04_Unemployed__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q05_Weapon_Threatened__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q06_Threatens_To_Kill__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q07_Avoided_Arrest__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q08_Child_Not_Partners__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q09_Forced_Sex__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q10_Strangled__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q11_Illegal_Drugs__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q12_Alcoholic__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q13_Controls_Daily__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q14_Jealous__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q15_Beaten_Pregnant__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q16_Partner_Suicide__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q17_Threatens_Children__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q18_Capable_Of_Killing__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q19_Stalking__c, "Yes"), 1, 0) +
+IF(ISPICKVAL(Q20_Your_Suicide__c, "Yes"), 1, 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Score</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assessor__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The advocate who administered the assessment. Field is technically optional (Salesforce restriction on User lookups); a Day 3 record-triggered flow will auto-populate with the current user.</description>
+    <externalId>false</externalId>
+    <label>Assessor</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>Danger Assessments Administered</relationshipLabel>
+    <relationshipName>Danger_Assessments_Administered</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
