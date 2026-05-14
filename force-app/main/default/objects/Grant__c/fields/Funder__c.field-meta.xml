@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Funder__c</fullName>
+    <description>Name of the funder organization (foundation, government agency, corporation). Free-text for now; future enhancement: lookup to a Funder custom object once we have repeat funders to track over time.</description>
+    <label>Funder</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+</CustomField>
