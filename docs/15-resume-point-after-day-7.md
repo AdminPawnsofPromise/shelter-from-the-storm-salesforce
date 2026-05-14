@@ -26,7 +26,7 @@ Both are authenticated. Don't re-auth unless needed.
 You are currently in a git worktree:
 
 ```
-C:\Users\tzadi\Documents\CLAUDE\SFTS\SalesForce\.claude\worktrees\quirky-nightingale-10cb2b\
+C:\Users\tzadi\Documents\CLAUDE\SFTS\SalesForce\.claude\worktrees\SFTS-GO-LIVE\
 ```
 
 Main repo (not the worktree):
@@ -37,7 +37,9 @@ C:\Users\tzadi\Documents\CLAUDE\SFTS\SalesForce\
 
 GitHub: https://github.com/AdminPawnsofPromise/shelter-from-the-storm-salesforce
 
-Branch: `SFTS-SALESFORCE-GO-LIVE` (renamed from `claude/quirky-nightingale-10cb2b`)
+Branch: `SFTS-SALESFORCE-GO-LIVE` (renamed from auto-generated `claude/quirky-nightingale-10cb2b`)
+
+Worktree folder: `.claude/worktrees/SFTS-GO-LIVE/` (renamed from auto-generated `.claude/worktrees/quirky-nightingale-10cb2b/`)
 
 **PR #1 is OPEN** on GitHub. 25+ commits ahead of main. Status: Ready to merge. Don't auto-merge; wait for Daniel's call.
 
