@@ -3,6 +3,11 @@
     <description>SFTS frontline advocates. Read/edit on Hotline_Call, Shelter_Stay, Danger_Assessment, Mandatory_Report, and Contact PII fields. No delete (preserves audit). For admin access use SFTS_Build_All_Access.</description>
     <fieldPermissions>
         <editable>true</editable>
+        <field>caseman__Intake__c.Website_Submission_Notes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Contact.Indiana_ACP_Effective_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>

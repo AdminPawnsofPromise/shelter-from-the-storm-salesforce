@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>SFTS_All_Internal_Read_Write_Shelter_Stays</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>All SFTS internal users can read and edit each other's Shelter Stay records. Necessary for bed-board operations across shifts.</description>
+        <label>SFTS All Internal — Shelter Stays Read/Write</label>
+        <sharedTo>
+            <allInternalUsers>true</allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <allInternalUsers>true</allInternalUsers>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

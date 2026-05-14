@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>SFTS_All_Internal_Read_Write_Mandatory_Reports</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>All SFTS internal users can read and edit Mandatory Reports. Supervisors must be able to see all reports filed by any advocate for audit defensibility and follow-up.</description>
+        <label>SFTS All Internal — Mandatory Reports Read/Write</label>
+        <sharedTo>
+            <allInternalUsers>true</allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <allInternalUsers>true</allInternalUsers>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>
