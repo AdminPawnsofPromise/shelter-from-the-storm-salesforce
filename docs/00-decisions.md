@@ -279,6 +279,65 @@ with a new entry that supersedes, and update both formula fields.
 
 ---
 
+## ADR-012 — Website intake forms integrate via Netlify Function → Salesforce REST API
+**Date:** 2026-05-14 (Day 2)
+**Status:** Proposed (intent confirmed by Daniel; implementation deferred to Day 5)
+
+### Decision
+The two Netlify forms on https://sftsinc.com (`quick-intake` and `intake`,
+in `sfts-site/get-help.html`) will integrate with Salesforce via a
+**Netlify serverless function** that receives the form submission webhook
+and POSTs to the Salesforce REST API.
+
+### Why
+- Real-time: survivor hits Send → record exists in Salesforce within ~3 sec
+- Zero recurring cost (Netlify Functions free tier covers expected volume)
+- No PII-at-rest in intermediate CSVs, no PII over email
+- Code lives in `sfts-site` repo on GitHub — auditable, version-controlled
+- Eliminates manual data re-entry, the original ask
+
+### What we considered and rejected
+- **CSV export + manual upload (Daniel's original idea).** Works but
+  introduces latency, manual step, and a PII file at rest. Acceptable
+  fallback if the webhook ever breaks.
+- **Zapier/Make middleman.** Works but $20-30/month and passes survivor
+  data through a third-party SaaS — unnecessary risk.
+- **Email-to-Case.** Email is unencrypted in transit; PII over email
+  fails our VAWA confidentiality posture.
+
+### Field mapping (provisional)
+
+**`quick-intake` form → `Hotline_Call__c`**
+- `first_name` → `Caller_Name__c` (and Contact match/create)
+- `phone` → `Caller_Phone__c`
+- `safe_to_call` → `Phone_Safe_To_Return__c` (Yes-voicemail → checked)
+- `note`, `best_time` → `Outcome_Notes__c` (concatenated)
+- Auto: `Caller_Type__c=Survivor`, `Call_Type__c=Crisis`,
+  `Call_Start_DateTime__c=NOW()`, `Outcome__c=Information Provided`
+
+**`intake` form (5-step) → `caseman__Intake__c` + Contact creation**
+- Step 1 Safety: `safety_status`, `urgency`, `contact_safety` →
+  custom fields on Intake (need to add)
+- Step 2 You: name/phone/email/age/pronouns/city/county → Contact
+- Step 3 Home: adults/children/pets → Intake or related child object
+- Step 4 Needs: `needs[]` checkboxes → enrollment recommendations
+- Step 5 Story: `story`, `referred`, `consent` → Intake long-text
+
+### Open implementation questions (Day 5)
+- Connected App + JWT bearer auth flow (server-to-server, no user OAuth)
+- Idempotency: dedupe on submission ID so retries don't double-create
+- Contact match logic: by email? phone? first-name+last-name+phone?
+  When no match, create new (with WatchList flag if anonymity requested)
+- Error handling: where do failed submissions go? (Netlify retains in
+  its form storage either way — useful as automatic fallback)
+
+### Out of scope for this ADR
+- Authentication for forms themselves (rate-limit, captcha) — handled
+  by Netlify honeypot already in place
+- HIPAA / VAWA encryption-at-rest details — Salesforce Shield TBD
+
+---
+
 ## Future entries
 
 Decisions made in subsequent days append here. Do not retroactively edit
