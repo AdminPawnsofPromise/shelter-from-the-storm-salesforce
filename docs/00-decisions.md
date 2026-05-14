@@ -74,6 +74,48 @@ running. Will be revisited at each Salesforce platform release.
 
 ---
 
+---
+
+## ADR-004 — Build on legacy `caseman` + `pmdm` stack, not modern Nonprofit Cloud
+**Date:** 2026-05-14 (Day 1)
+**Status:** Proposed — awaiting Daniel's confirmation
+
+### Decision (proposed)
+This build will use the installed legacy stack — `caseman` (Case Management
+for Nonprofits) and `pmdm` (Program Management Module) — rather than the
+modern Nonprofit Cloud architecture (CareProgram, CareProgramEnrollee,
+BenefitAssignment).
+
+### Why
+- The legacy stack is **already installed** with all required objects:
+  Intake, Assessment, Case Plan, Goal, Action Item, Client Alert, Client
+  Note, Program, Program Engagement, Service, Service Delivery
+- Modern NPC PSLs are licensed but the standard objects (CareProgram etc.)
+  are **not present** in this org and would require setup activation
+  and possibly additional managed package installs
+- The 2-week timeline cannot absorb 1-2 days of architecture pivot work
+- PMM + caseman is a well-documented, widely-adopted stack for nonprofit
+  case management — including DV shelters in the SFDO community
+- ICJI and VOCA reporting requirements are agnostic to the underlying
+  object architecture; what matters is the demographic + service-unit
+  data we capture, not where it sits
+- A non-developer admin (Daniel) maintaining this org long-term will
+  benefit from a stack that has more public Trailhead / Power of Us
+  Hub documentation
+
+### What we considered and rejected
+- **Pivot to modern Nonprofit Cloud (CareProgram + BenefitAssignment).**
+  Rejected for this build. Future migration is possible but not on the
+  critical path. Custom objects we build (Hotline_Call__c,
+  Bed_Assignment__c, Mandatory_Report__c) will be designed with clean
+  schemas that can be migrated to modern NPC later if desired.
+
+### Open follow-up
+- After go-live, evaluate whether to enable modern NPC features as a
+  phase-2 migration. Not on the 2-week critical path.
+
+---
+
 ## Future entries
 
 Decisions made in subsequent days append here. Do not retroactively edit
