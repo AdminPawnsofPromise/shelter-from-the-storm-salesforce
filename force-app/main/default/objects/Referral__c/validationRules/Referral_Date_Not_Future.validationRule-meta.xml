@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referral_Date_Not_Future</fullName>
+    <active>true</active>
+    <description>Captures when the referral was made, not when it was planned.</description>
+    <errorConditionFormula>Referral_Date__c &gt; TODAY()</errorConditionFormula>
+    <errorMessage>Referral Date cannot be in the future. Use today or an earlier date when the referral was actually made.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submitted_Date_Required_Post_Submission</fullName>
+    <active>true</active>
+    <description>Submission date is needed to track funder turnaround times and prevent duplicate submissions.</description>
+    <errorConditionFormula>AND(OR(ISPICKVAL(Status__c, "Submitted"), ISPICKVAL(Status__c, "Awarded"), ISPICKVAL(Status__c, "Declined"), ISPICKVAL(Status__c, "In Progress"), ISPICKVAL(Status__c, "Reporting Due"), ISPICKVAL(Status__c, "Closed")), ISBLANK(Submitted_Date__c))</errorConditionFormula>
+    <errorMessage>Submitted Date is required once a grant has been submitted. Please record when it went out.</errorMessage>
+</ValidationRule>

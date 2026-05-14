@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Outcome_Required_When_Closed</fullName>
+    <active>true</active>
+    <description>Forces documentation of what happened on referral close. Outcomes feed funder reporting.</description>
+    <errorConditionFormula>AND(OR(ISPICKVAL(Status__c, "Closed - Success"), ISPICKVAL(Status__c, "Closed - Unable to Connect")), ISBLANK(Outcome__c))</errorConditionFormula>
+    <errorMessage>When closing a referral (Closed - Success or Closed - Unable to Connect), please document the Outcome.</errorMessage>
+</ValidationRule>
