@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>caseman__ReferralOrganization__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <description>The organization referring to us on an inbound referral, or the organization we are referring to on an outbound referral.</description>
+    <label>Referral Organization</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Organization Referrals</relationshipLabel>
+    <relationshipName>OrganizationReferrals</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

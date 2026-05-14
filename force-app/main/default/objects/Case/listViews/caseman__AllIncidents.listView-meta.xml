@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>caseman__AllIncidents</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>NAME</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>caseman__Branch__c</columns>
+    <columns>caseman__WatchList__c</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>caseman__IncidentType__c</columns>
+    <columns>caseman__IncidentDateTime__c</columns>
+    <columns>OWNER_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.caseman__Incident</value>
+    </filters>
+    <label>Case Management: All Incidents</label>
+</ListView>

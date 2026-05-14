@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>caseman__MaximumClientsServed__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The maximum client-serving capacity of an organization, location, or partner organization.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The maximum client-serving capacity of an organization, location, or partner organization.</inlineHelpText>
+    <label>Maximum Clients Served At Any Time</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>caseman__CreateIntake</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Create Intake</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/lightning/cmp/caseman__flowNavigator?c__caseId={!Case.Id}&amp;c__flowApiName=caseman__ReferralToIntake</url>
+</WebLink>
