@@ -1,0 +1,19 @@
+# Files to exclude from sf project retrieve / sf project deploy.
+# Different from .gitignore: this controls what sf sees, not git.
+
+# Standard ignores
+package.xml
+**/jsconfig.json
+**/.eslintrc.json
+
+# OS junk
+**/.DS_Store
+**/Thumbs.db
+
+# Don't deploy our docs or scripts folder
+docs/
+scripts/
+
+# Don't deploy local Claude/editor state
+.claude/
+.vscode/
