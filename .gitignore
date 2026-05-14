@@ -77,3 +77,4 @@ $RECYCLE.BIN/
 coverage/
 test-results/
 .nyc_output/
+.workflow-reference/
