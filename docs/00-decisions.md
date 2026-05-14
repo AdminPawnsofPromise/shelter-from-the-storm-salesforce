@@ -155,6 +155,106 @@ unassigned from `clientadvocate@sftsinc.com` and reassigned to
 
 ---
 
+## ADR-007 — Hotline_Call__c.Contact lookup is OPTIONAL
+**Date:** 2026-05-14 (Day 2)
+**Status:** Accepted (approved by Daniel)
+
+### Decision
+The `Contact__c` lookup field on `Hotline_Call__c` is optional, not required.
+Anonymous calls (no name given) create a Hotline_Call__c record with
+`Contact__c = null`. A `Caller_Name__c` text field captures partial info
+when the caller gives a name but isn't willing to be added as a Contact.
+
+### Why
+- Many DV hotline calls are anonymous — caller never gives name
+- Forcing a Contact for anonymous callers would either lose the call
+  (advocate skips logging it) or pollute the Contact table with
+  thousands of "Anonymous Caller" records
+- Reporting on anonymous-vs-identified call volumes is easier when
+  the distinction is encoded as `Contact__c IS NULL` vs not
+
+### What we considered and rejected
+- **Always create a Contact (placeholder for anonymous).** Trade-off:
+  cleaner long-term reporting, but pollutes Contact table and adds
+  friction to logging short calls.
+
+---
+
+## ADR-008 — Danger Assessment uses Campbell DA-20 instrument
+**Date:** 2026-05-14 (Day 2)
+**Status:** Accepted (approved by Daniel)
+
+### Decision
+The Danger Assessment object/scoring will encode the Campbell
+**Danger Assessment (DA-20)** — the full 20-question instrument.
+
+### Scoring tiers (Campbell's published thresholds)
+- 0–7: **Variable Danger**
+- 8–13: **Increased Danger**
+- 14–17: **Severe Danger**
+- 18+:  **Extreme Danger**
+
+### Why
+- Campbell's DA is the gold-standard, peer-reviewed lethality
+  assessment in DV advocacy
+- Validated against intimate-partner homicide outcomes
+- Most likely instrument Indiana advocates are already trained on
+
+### Open question
+- **Do we build a custom `Danger_Assessment__c` object OR extend
+  `caseman__Assessment__c`?** TBD — will decide when we start building.
+  Custom gives full control; caseman__Assessment__c gives reuse but
+  may have rigid structure.
+
+---
+
+## ADR-009 — Shelter beds tracked as stay records, not named-bed records
+**Date:** 2026-05-14 (Day 2)
+**Status:** Accepted (approved by Daniel)
+
+### Decision
+Shelter occupancy is tracked via a `Shelter_Stay__c` custom object
+(one record per survivor's stay), NOT by modeling individual physical
+beds. Current bed occupancy is derived: `count of Shelter_Stay__c
+WHERE Check_Out_DateTime__c IS NULL`.
+
+The total bed *capacity* is stored as a single configurable number
+(org-level setting or custom metadata).
+
+### Why
+- Daniel chose simplest model
+- Reporting needs are met without bed-level granularity
+- Future enhancement to named beds is non-destructive (add a Bed__c
+  lookup to Shelter_Stay__c later)
+
+### Naming change
+The brief called this `Bed_Assignment__c`. Renamed to `Shelter_Stay__c`
+because we're not assigning beds — we're tracking stays.
+
+---
+
+## ADR-010 — Mandatory reports are audit-only records, no approval workflow
+**Date:** 2026-05-14 (Day 2)
+**Status:** Accepted (approved by Daniel)
+
+### Decision
+`Mandatory_Report__c` is an audit log of mandatory reports already made
+to APS, DCS, or law enforcement. No supervisor-approval workflow.
+Field history tracking enabled on key fields for audit defensibility.
+
+### Why
+- Reports must be made within statutory time limits (often immediate);
+  an approval gate would create dangerous delay
+- Indiana mandatory reporters have personal legal liability — the
+  record is for audit defense, not pre-approval
+- Supervisor review can happen out-of-band (chatter, daily standup)
+
+### Possible future enhancement
+- If audit reveals advocates are uncertain about when to report,
+  add a "pre-report consultation" workflow as a separate concept
+
+---
+
 ## Future entries
 
 Decisions made in subsequent days append here. Do not retroactively edit
