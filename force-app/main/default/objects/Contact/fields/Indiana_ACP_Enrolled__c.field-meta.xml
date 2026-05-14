@@ -6,7 +6,7 @@
     <externalId>false</externalId>
     <inlineHelpText>Indiana ACP provides a substitute address to keep survivors safe. NEVER display the real mailing address when this is checked.</inlineHelpText>
     <label>Indiana ACP Enrolled</label>
-    <trackHistory>false</trackHistory>
+    <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>
 </CustomField>

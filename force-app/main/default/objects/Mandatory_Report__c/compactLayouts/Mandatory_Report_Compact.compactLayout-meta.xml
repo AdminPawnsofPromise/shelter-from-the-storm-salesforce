@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mandatory_Report_Compact</fullName>
+    <fields>Name</fields>
+    <fields>Report_Type__c</fields>
+    <fields>Report_DateTime__c</fields>
+    <fields>About_Contact__c</fields>
+    <fields>Reporting_Agency_Name__c</fields>
+    <fields>Outcome_Status__c</fields>
+    <label>Mandatory Report Compact</label>
+</CompactLayout>
