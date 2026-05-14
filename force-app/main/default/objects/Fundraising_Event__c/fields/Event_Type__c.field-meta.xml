@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_Type__c</fullName>
+    <description>Category of fundraising event. Aligns with the recurring events SFTS runs.</description>
+    <label>Event Type</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>false</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value><fullName>Annual Gala</fullName><default>false</default><label>Annual Gala</label></value>
+            <value><fullName>Auction</fullName><default>false</default><label>Auction</label></value>
+            <value><fullName>Bingo</fullName><default>false</default><label>Bingo</label></value>
+            <value><fullName>Community Outreach</fullName><default>false</default><label>Community Outreach</label></value>
+            <value><fullName>Cookout / BBQ</fullName><default>false</default><label>Cookout / BBQ</label></value>
+            <value><fullName>Cookoff</fullName><default>false</default><label>Cookoff</label></value>
+            <value><fullName>Other</fullName><default>false</default><label>Other</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
