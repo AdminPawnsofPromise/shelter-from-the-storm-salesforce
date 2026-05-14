@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reporter_Required</fullName>
+    <active>true</active>
+    <description>Reporter must be set. Field is metadata-optional only because Salesforce doesn't allow Restrict/Cascade on User lookups; this rule enforces business requirement.</description>
+    <errorConditionFormula>ISBLANK(Reporter__c)</errorConditionFormula>
+    <errorDisplayField>Reporter__c</errorDisplayField>
+    <errorMessage>A Reporter must be set on every Mandatory Report. This defaults to you when you create a new record.</errorMessage>
+</ValidationRule>

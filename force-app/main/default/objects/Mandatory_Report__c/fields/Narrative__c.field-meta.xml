@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Narrative__c</fullName>
+    <description>What was actually reported to the agency, in the advocate's own words. Should mirror the verbal report made. Useful for legal audit and consistency review.</description>
+    <externalId>false</externalId>
+    <label>Report Narrative</label>
+    <length>32768</length>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>8</visibleLines>
+</CustomField>
