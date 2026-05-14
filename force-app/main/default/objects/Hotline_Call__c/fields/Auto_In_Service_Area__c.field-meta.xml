@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_In_Service_Area__c</fullName>
+    <description>Computed: TRUE when Caller_County__c is in SFTS's service area per ADR-011 (Marion, Shelby, Johnson, Hancock). Read-only. The manual In_Service_Area__c checkbox remains for edge cases (e.g., caller from outside the four counties but who would still be served).</description>
+    <externalId>false</externalId>
+    <formula>OR(
+  ISPICKVAL(Caller_County__c, "Marion"),
+  ISPICKVAL(Caller_County__c, "Shelby"),
+  ISPICKVAL(Caller_County__c, "Johnson"),
+  ISPICKVAL(Caller_County__c, "Hancock")
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Auto In Service Area</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

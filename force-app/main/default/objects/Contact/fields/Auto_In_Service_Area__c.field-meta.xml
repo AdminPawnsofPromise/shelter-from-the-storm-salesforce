@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_In_Service_Area__c</fullName>
+    <description>Computed: TRUE when Indiana_County_of_Residence__c is in SFTS's service area per ADR-011 (Marion, Shelby, Johnson, Hancock). Read-only. Sharing-rule filters and reports should use this rather than re-encoding the county list.</description>
+    <externalId>false</externalId>
+    <formula>OR(
+  ISPICKVAL(Indiana_County_of_Residence__c, "Marion"),
+  ISPICKVAL(Indiana_County_of_Residence__c, "Shelby"),
+  ISPICKVAL(Indiana_County_of_Residence__c, "Johnson"),
+  ISPICKVAL(Indiana_County_of_Residence__c, "Hancock")
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Auto In Service Area</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

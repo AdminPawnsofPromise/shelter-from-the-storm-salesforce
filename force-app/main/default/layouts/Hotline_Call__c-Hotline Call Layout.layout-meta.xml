@@ -77,6 +77,10 @@
                 <field>Caller_County__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Auto_In_Service_Area__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>In_Service_Area__c</field>
             </layoutItems>

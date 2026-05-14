@@ -2,6 +2,11 @@
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>Full read/edit access to all SFTS-built custom objects and fields. Assign to build admins. This permission set is updated as new objects and fields are added during the build.</description>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Auto_In_Service_Area__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Indiana_ACP_Effective_Date__c</field>
         <readable>true</readable>
@@ -54,6 +59,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Hotline_Call__c.Advocate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Hotline_Call__c.Auto_In_Service_Area__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
