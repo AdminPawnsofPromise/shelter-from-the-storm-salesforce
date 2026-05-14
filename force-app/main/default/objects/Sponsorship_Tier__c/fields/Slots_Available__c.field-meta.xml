@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Slots_Available__c</fullName>
+    <description>How many sponsors can claim this tier. Null = unlimited. Use 1 for exclusive tiers (Title sponsor).</description>
+    <label>Slots Available</label>
+    <precision>3</precision>
+    <scale>0</scale>
+    <type>Number</type>
+</CustomField>

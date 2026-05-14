@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Intake_Assessments</fullName>
+    <columns>NAME</columns>
+    <columns>Contact__c</columns>
+    <columns>Assessment_Date__c</columns>
+    <columns>Safety__c</columns>
+    <columns>Housing__c</columns>
+    <columns>Employment_Income__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Checkpoint__c</field>
+        <operation>equals</operation>
+        <value>Intake</value>
+    </filters>
+    <label>Intake Assessments</label>
+</ListView>

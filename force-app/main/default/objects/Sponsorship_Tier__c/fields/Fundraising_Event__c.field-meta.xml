@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fundraising_Event__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>The event this tier belongs to. Restrict delete: events with tiers can't be deleted directly; remove tiers first. (Cascade delete on lookups requires a Salesforce support request to enable on standard custom objects.)</description>
+    <label>Fundraising Event</label>
+    <referenceTo>Fundraising_Event__c</referenceTo>
+    <relationshipLabel>Sponsorship Tiers</relationshipLabel>
+    <relationshipName>Sponsorship_Tiers</relationshipName>
+    <required>true</required>
+    <type>Lookup</type>
+</CustomField>

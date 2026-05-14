@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Benefits__c</fullName>
+    <description>What the sponsor receives: ad size, table count, logo placement, recognition, ticket allotment, etc.</description>
+    <label>Benefits</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>6</visibleLines>
+</CustomField>

@@ -201,6 +201,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Sponsorship_Tier__c.Benefits__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Sponsorship_Tier__c.Slots_Available__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Contact.Indiana_ACP_Effective_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -707,6 +717,15 @@
         <object>Shelter_Stay__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Sponsorship_Tier__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <tabSettings>
         <tab>Danger_Assessment__c</tab>
         <visibility>Visible</visibility>
@@ -745,6 +764,10 @@
     </tabSettings>
     <tabSettings>
         <tab>Shelter_Stay__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Sponsorship_Tier__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>
