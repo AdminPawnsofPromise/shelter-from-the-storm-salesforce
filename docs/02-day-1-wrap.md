@@ -99,6 +99,10 @@ All on `main`, all committed locally. No remote yet (we'll set up GitHub or anot
 
 ## What you should do before Day 2
 
-Honestly? Nothing required. The sandbox provisions on Salesforce's side regardless of your computer. Check your `admin@sftsinc.com` email tomorrow morning — when you see the "Your sandbox dev is ready" message, run the resume sequence above and ping me. If you don't see the email by lunch tomorrow, run the status query in the resume sequence anyway; the email occasionally gets stuck.
+Honestly? Nothing required. The sandbox provisions on Salesforce's side regardless of your computer.
+
+**Where the sandbox-ready email will arrive:** The Salesforce CLI authenticated as username `admin@sftsinc.com`, which is YOUR (Daniel's) user. The actual mailbox on that user record is **`timdstep@gmail.com`** — that's where the "Your sandbox dev is ready" notification will land. (`admin@sftsinc.com` is just a login identifier, not a real mailbox. Common Salesforce gotcha.)
+
+When you see that email tomorrow, run the resume sequence above and ping me. If you don't see the email by lunch tomorrow, run the status query in the resume sequence anyway — the email occasionally gets stuck.
 
 Sleep on the 5 open questions if you have time. We can also work through them live tomorrow.

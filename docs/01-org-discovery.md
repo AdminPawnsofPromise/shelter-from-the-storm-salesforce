@@ -91,16 +91,25 @@ These do NOT exist in the org yet — zero custom objects in the no-namespace zo
 
 ### Active users (8 total — 3 humans, 5 system)
 
-| Username                                    | Profile                          | Last login   | Type             |
-| ------------------------------------------- | -------------------------------- | ------------ | ---------------- |
-| `admin@sftsinc.com`                         | System Administrator             | Today        | Standard         |
-| `director@sftsinc.com`                      | Program Management Standard User | Yesterday    | Standard         |
-| `clientadvocate@sftsinc.com`                | Program Management Standard User | 2026-03-10 (2 months ago) | Standard |
-| chatty (Chatter bot)                        | Chatter Free User                | never        | CsnOnly          |
-| cloud@…                                     | —                                | never        | CloudIntegrationUser |
-| insightsintegration@…                       | Sales Insights Integration User  | never        | Standard         |
-| automatedclean@…                            | —                                | never        | AutomatedProcess |
-| autoproc@…                                  | —                                | never        | AutomatedProcess |
+⚠️ **Salesforce gotcha:** `Username` is a login identifier in email format; it
+is NOT necessarily a real mailbox. The `Email` field on the User record is
+where Salesforce actually sends mail (password resets, notifications, sandbox
+ready notices, etc.).
+
+| Username                                    | Real name           | Email mailbox                | Title       | Profile                          | Last login            |
+| ------------------------------------------- | ------------------- | ---------------------------- | ----------- | -------------------------------- | --------------------- |
+| `admin@sftsinc.com`                         | **Daniel Stephens** | `timdstep@gmail.com`         | CTO         | System Administrator             | Today                 |
+| `director@sftsinc.com`                      | **Lana Stephens**   | `director@sftsinc.com`       | President   | Program Management Standard User | Yesterday             |
+| `clientadvocate@sftsinc.com`                | Brittany Stephens   | `clientadvocate@sftsinc.com` | —           | Program Management Standard User | 2026-03-10            |
+| chatty (Chatter bot)                        | (system)            | —                            | —           | Chatter Free User                | never                 |
+| `cloud@…`                                   | (system)            | —                            | —           | —                                | never                 |
+| `insightsintegration@…`                     | (system)            | —                            | —           | Sales Insights Integration User  | never                 |
+| `automatedclean@…`                          | (system)            | —                            | —           | —                                | never                 |
+| `autoproc@…`                                | (system)            | —                            | —           | —                                | never                 |
+
+- The CLI is authenticated as **`admin@sftsinc.com`** (Daniel, System Administrator). Correct account for build work.
+- Salesforce-generated emails for actions taken by `admin@sftsinc.com` (including the **sandbox ready notification**) go to **`timdstep@gmail.com`**.
+- Three of the active users share the surname Stephens (Daniel/Lana/Brittany) — family-run org.
 
 ### User licenses
 
@@ -125,7 +134,7 @@ These do NOT exist in the org yet — zero custom objects in the no-namespace zo
 | - | ----------------------------------------------------------------------------- | ------------------------------------------------ |
 | 1 | Org timezone was Pacific (America/Los_Angeles)                                | **Fixed** — changed to America/Indiana/Indianapolis |
 | 2 | NPC Case Management RUL held by dormant user `clientadvocate@sftsinc.com` (Brittany Stephens) | **Fixed** — RUL reassigned to admin; Brittany's caseman permission sets removed |
-| 3 | Daniel's user on "Program Management Standard User" profile                   | Open — will address in Day 12 (permission sets / profiles / sharing) |
+| 3 | Lana's user (President, `director@sftsinc.com`) on "Program Management Standard User" profile | Open — will address in Day 12 (permission sets / profiles / sharing). Daniel is the admin and works from `admin@sftsinc.com`. |
 | 4 | 1 sample Intake record + 1 sample Case record in production                   | Confirmed sample data; safe to ignore or delete later |
 | 5 | 11 Salesforce licenses vs 10 Power of Us in brief                             | Minor discrepancy, not blocking                  |
 
