@@ -24,9 +24,6 @@ scripts/
 # cutover plan, package metadata is informational only — don't push it.
 **/installedPackages/
 
-# Log_Service_Delivery quick action: deployed to sandbox via UI on Day 6 but
-# the local metadata file is missing the correct relationship element
-# (`targetParentField` vs `targetField`). Excluded from deploys until the
-# correct structure is determined. Tracked as follow-up; not blocking the
-# website-integration cutover.
-force-app/main/default/quickActions/Contact.Log_Service_Delivery.quickAction-meta.xml
+# (Previous entry for Log_Service_Delivery quick action — RESOLVED. Element
+# name was targetParentField, not targetField. File is now correct and
+# included in deploys.)

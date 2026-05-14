@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
-    <label>Log Service Delivery</label>
+    <label>New Financial Counseling Session</label>
     <optionsCreateFeedItem>false</optionsCreateFeedItem>
     <quickActionLayout>
         <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
         <quickActionLayoutColumns>
             <quickActionLayoutItems>
-                <field>pmdm__Service__c</field>
+                <field>Checkpoint__c</field>
                 <uiBehavior>Edit</uiBehavior>
             </quickActionLayoutItems>
             <quickActionLayoutItems>
-                <field>pmdm__DeliveryDate__c</field>
+                <field>Session_Date__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <field>Budgeting_Understanding__c</field>
                 <uiBehavior>Edit</uiBehavior>
             </quickActionLayoutItems>
         </quickActionLayoutColumns>
-        <quickActionLayoutColumns>
-            <quickActionLayoutItems>
-                <field>pmdm__Quantity__c</field>
-                <uiBehavior>Edit</uiBehavior>
-            </quickActionLayoutItems>
-            <quickActionLayoutItems>
-                <field>pmdm__AttendanceStatus__c</field>
-                <uiBehavior>Edit</uiBehavior>
-            </quickActionLayoutItems>
-        </quickActionLayoutColumns>
+        <quickActionLayoutColumns></quickActionLayoutColumns>
     </quickActionLayout>
-    <targetObject>pmdm__ServiceDelivery__c</targetObject>
-    <targetParentField>pmdm__Contact__c</targetParentField>
+    <targetObject>Financial_Counseling__c</targetObject>
+    <targetParentField>Contact__c</targetParentField>
     <type>Create</type>
 </QuickAction>
