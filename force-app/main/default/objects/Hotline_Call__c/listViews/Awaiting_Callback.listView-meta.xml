@@ -12,14 +12,19 @@
     <columns>Advocate__c</columns>
     <filterScope>Everything</filterScope>
     <filters>
-        <field>Outcome__c</field>
+        <field>Phone_Safe_To_Return__c</field>
         <operation>equals</operation>
-        <value>Callback Scheduled,Information Provided</value>
+        <value>1</value>
     </filters>
     <filters>
         <field>Intake_Initiated__c</field>
         <operation>equals</operation>
         <value>0</value>
     </filters>
-    <label>Awaiting Callback</label>
+    <filters>
+        <field>Outcome__c</field>
+        <operation>notEqual</operation>
+        <value>Hung Up,No Action</value>
+    </filters>
+    <label>Awaiting Callback (Safe to Call)</label>
 </ListView>

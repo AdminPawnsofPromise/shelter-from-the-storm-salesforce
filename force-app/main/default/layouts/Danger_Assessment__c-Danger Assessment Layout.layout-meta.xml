@@ -40,20 +40,14 @@
         <customLabel>true</customLabel>
         <detailHeading>false</detailHeading>
         <editHeading>true</editHeading>
-        <label>Questions 1–10</label>
+        <label>Severity &amp; Sexual Violence</label>
         <layoutColumns>
             <layoutItems><behavior>Edit</behavior><field>Q01_Violence_Increased__c</field></layoutItems>
-            <layoutItems><behavior>Edit</behavior><field>Q02_Owns_Gun__c</field></layoutItems>
-            <layoutItems><behavior>Edit</behavior><field>Q03_You_Left__c</field></layoutItems>
-            <layoutItems><behavior>Edit</behavior><field>Q04_Unemployed__c</field></layoutItems>
-            <layoutItems><behavior>Edit</behavior><field>Q05_Weapon_Threatened__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>Q10_Strangled__c</field></layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems><behavior>Edit</behavior><field>Q06_Threatens_To_Kill__c</field></layoutItems>
-            <layoutItems><behavior>Edit</behavior><field>Q07_Avoided_Arrest__c</field></layoutItems>
-            <layoutItems><behavior>Edit</behavior><field>Q08_Child_Not_Partners__c</field></layoutItems>
             <layoutItems><behavior>Edit</behavior><field>Q09_Forced_Sex__c</field></layoutItems>
-            <layoutItems><behavior>Edit</behavior><field>Q10_Strangled__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>Q15_Beaten_Pregnant__c</field></layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -61,19 +55,58 @@
         <customLabel>true</customLabel>
         <detailHeading>false</detailHeading>
         <editHeading>true</editHeading>
-        <label>Questions 11–20</label>
+        <label>Lethality Indicators (weapons + explicit threats)</label>
+        <layoutColumns>
+            <layoutItems><behavior>Edit</behavior><field>Q02_Owns_Gun__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>Q05_Weapon_Threatened__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>Q06_Threatens_To_Kill__c</field></layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems><behavior>Edit</behavior><field>Q17_Threatens_Children__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>Q18_Capable_Of_Killing__c</field></layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>false</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Coercive Control &amp; Substance Use</label>
+        <layoutColumns>
+            <layoutItems><behavior>Edit</behavior><field>Q13_Controls_Daily__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>Q14_Jealous__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>Q07_Avoided_Arrest__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>Q08_Child_Not_Partners__c</field></layoutItems>
+        </layoutColumns>
         <layoutColumns>
             <layoutItems><behavior>Edit</behavior><field>Q11_Illegal_Drugs__c</field></layoutItems>
             <layoutItems><behavior>Edit</behavior><field>Q12_Alcoholic__c</field></layoutItems>
-            <layoutItems><behavior>Edit</behavior><field>Q13_Controls_Daily__c</field></layoutItems>
-            <layoutItems><behavior>Edit</behavior><field>Q14_Jealous__c</field></layoutItems>
-            <layoutItems><behavior>Edit</behavior><field>Q15_Beaten_Pregnant__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>Q04_Unemployed__c</field></layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>false</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Stalking &amp; Separation Risk</label>
+        <layoutColumns>
+            <layoutItems><behavior>Edit</behavior><field>Q03_You_Left__c</field></layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems><behavior>Edit</behavior><field>Q16_Partner_Suicide__c</field></layoutItems>
-            <layoutItems><behavior>Edit</behavior><field>Q17_Threatens_Children__c</field></layoutItems>
-            <layoutItems><behavior>Edit</behavior><field>Q18_Capable_Of_Killing__c</field></layoutItems>
             <layoutItems><behavior>Edit</behavior><field>Q19_Stalking__c</field></layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>false</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Suicide Threats</label>
+        <layoutColumns>
+            <layoutItems><behavior>Edit</behavior><field>Q16_Partner_Suicide__c</field></layoutItems>
+        </layoutColumns>
+        <layoutColumns>
             <layoutItems><behavior>Edit</behavior><field>Q20_Your_Suicide__c</field></layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
