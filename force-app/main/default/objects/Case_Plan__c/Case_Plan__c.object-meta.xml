@@ -5,7 +5,7 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>Case_Plan_Compact</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>The formal case plan for an Intake — what we're working toward with this survivor. Parent record for Case_Goal__c (the individual SMART goals).</description>
     <enableActivities>true</enableActivities>

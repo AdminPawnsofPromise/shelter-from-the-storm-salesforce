@@ -5,7 +5,7 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>Service_Episode_Compact</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>VOCA-grade service-delivery tracking. One record per service touchpoint (counseling session, court accompaniment, transportation, material aid, etc.). Drives monthly VOCA reports and outcomes dashboards.</description>
     <enableActivities>true</enableActivities>

@@ -26,9 +26,6 @@
     <tabs>Case_Goal__c</tabs>
     <tabs>SFTS_Program__c</tabs>
     <tabs>SFTS_Resource__c</tabs>
-    <tabs>standard-Case</tabs>
-    <tabs>pmdm__Program__c</tabs>
-    <tabs>pmdm__ServiceDelivery__c</tabs>
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <uiType>Lightning</uiType>

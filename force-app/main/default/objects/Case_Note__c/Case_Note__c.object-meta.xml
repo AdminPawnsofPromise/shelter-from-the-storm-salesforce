@@ -5,7 +5,7 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>Case_Note_Compact</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Daily interaction journal. One record per phone call, in-person visit, collateral contact, court appearance, service touchpoint, etc. The unified "what happened" log across all survivor cases.</description>
     <enableActivities>true</enableActivities>

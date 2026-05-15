@@ -5,7 +5,7 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>Case_Goal_Compact</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>An individual SMART goal under a Case_Plan__c. Tracks one specific objective (e.g., "Secure protective order by 2026-08-01") with progress status. Multiple goals per plan, organized by SSM domain.</description>
     <enableActivities>false</enableActivities>

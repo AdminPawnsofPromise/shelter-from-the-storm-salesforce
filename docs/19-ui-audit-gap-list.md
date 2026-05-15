@@ -33,6 +33,8 @@ Auto-generated Tasks have `WhatId = Intake` but no `WhoId = Contact`. Salesforce
 
 ## P1 — Visible quality issues
 
+**✅ ALL P1 ITEMS SHIPPED 2026-05-15 (overnight push, after P0).** Deployed to dev + prod. No Flow changes in P1 so no reactivation step.
+
 These reduce trust and clarity but don't block work.
 
 ### P1.1 — Compact layouts unassigned on 4 custom objects
