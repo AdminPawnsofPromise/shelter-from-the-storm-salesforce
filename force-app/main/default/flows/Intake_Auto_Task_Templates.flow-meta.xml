@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
-    <description>STARTER profile engine for intake-driven task generation. On caseman__Intake__c insert, evaluates the new economic-stabilization fields and creates Tasks for common follow-up patterns:
-- If no government ID → create "Help apply for replacement ID" task (high priority, due today+1)
-- If no health insurance → create "Help apply for Medicaid" task (due today+3)
-- If unemployed AND looking → create "Refer to WorkOne + Unemployment Insurance" task (due today+3)
+    <description>Profile engine for intake-driven task generation. On caseman__Intake__c insert, evaluates the new economic-stabilization fields + safety signals and creates Tasks for follow-up patterns.
 
-This is v1 / starter logic. More profiles can be added incrementally. All tasks are owned by Lana (Director); advocate refines/reassigns as needed.</description>
+Profiles (v2):
+- If no government ID → "Help apply for replacement ID" (High, +1 day)
+- If no health insurance → "Help apply for Medicaid / HIP 2.0" (Normal, +3 days)
+- If unemployed AND looking → "Refer to WorkOne + UI with DV exemption" (Normal, +3 days)
+- If shelter requested → "Begin shelter intake — confirm bed and prep arrival" (High, today)
+- If Risk_Level = High → "Schedule danger assessment within 48h + immediate safety planning" (High, today)
+- If no bank account or unsafe joint account → "Help open survivor-only bank account" (Normal, +5 days)
+- If childcare needed → "Help apply for CCDF voucher (Indiana child care)" (Normal, +3 days)
+- If no/unreliable transportation → "Refer to transportation resources" (Normal, +5 days)
+- If no benefits and has children → "Help apply for SNAP + WIC + TANF" (Normal, +3 days)
+
+All tasks are owned by Lana (Director); advocate refines/reassigns as needed. Each task has a deep description with SFTS-specific context so Lana doesn't need to remember the institutional knowledge.</description>
     <environments>Default</environments>
     <interviewLabel>Intake — Auto Task Templates {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Intake — Auto Task Templates</label>
@@ -96,7 +104,10 @@ This is v1 / starter logic. More profiles can be added incrementally. All tasks 
         <label>Unemployed and looking?</label>
         <locationX>176</locationX>
         <locationY>700</locationY>
-        <defaultConnectorLabel>No action</defaultConnectorLabel>
+        <defaultConnectorLabel>Has employment — skip</defaultConnectorLabel>
+        <defaultConnector>
+            <targetReference>Check_Shelter</targetReference>
+        </defaultConnector>
         <rules>
             <name>Unemployed_Looking</name>
             <conditionLogic>and</conditionLogic>
@@ -111,6 +122,142 @@ This is v1 / starter logic. More profiles can be added incrementally. All tasks 
                 <targetReference>Create_WorkOne_Task</targetReference>
             </connector>
             <label>Unemployed — create WorkOne + UI task</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Shelter</name>
+        <label>Shelter requested?</label>
+        <locationX>176</locationX>
+        <locationY>980</locationY>
+        <defaultConnectorLabel>No shelter request — skip</defaultConnectorLabel>
+        <defaultConnector>
+            <targetReference>Check_Risk</targetReference>
+        </defaultConnector>
+        <rules>
+            <name>Shelter_Requested</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Shelter_Requested__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Shelter_Intake_Task</targetReference>
+            </connector>
+            <label>Shelter requested — create urgent intake task</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Risk</name>
+        <label>High risk level?</label>
+        <locationX>176</locationX>
+        <locationY>1260</locationY>
+        <defaultConnectorLabel>Lower risk — skip</defaultConnectorLabel>
+        <defaultConnector>
+            <targetReference>Check_Bank</targetReference>
+        </defaultConnector>
+        <rules>
+            <name>High_Risk</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Risk_Level__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>High</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Danger_Assessment_Task</targetReference>
+            </connector>
+            <label>High risk — schedule danger assessment + safety planning</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Bank</name>
+        <label>No safe bank account?</label>
+        <locationX>176</locationX>
+        <locationY>1540</locationY>
+        <defaultConnectorLabel>Has safe account — skip</defaultConnectorLabel>
+        <defaultConnector>
+            <targetReference>Check_Childcare</targetReference>
+        </defaultConnector>
+        <rules>
+            <name>No_Safe_Bank</name>
+            <conditionLogic>1 OR 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Has_Bank_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Has_Bank_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Joint with abuser — unsafe</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Bank_Task</targetReference>
+            </connector>
+            <label>No safe account — create bank-account task</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Childcare</name>
+        <label>Needs childcare help?</label>
+        <locationX>176</locationX>
+        <locationY>1820</locationY>
+        <defaultConnectorLabel>Childcare OK — skip</defaultConnectorLabel>
+        <defaultConnector>
+            <targetReference>Check_Transportation</targetReference>
+        </defaultConnector>
+        <rules>
+            <name>Needs_Childcare</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Childcare_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Need help finding childcare</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Childcare_Task</targetReference>
+            </connector>
+            <label>Needs childcare — create CCDF voucher task</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Transportation</name>
+        <label>Unreliable transportation?</label>
+        <locationX>176</locationX>
+        <locationY>2100</locationY>
+        <defaultConnectorLabel>Transportation OK — skip</defaultConnectorLabel>
+        <rules>
+            <name>No_Reliable_Transit</name>
+            <conditionLogic>1 OR 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Transportation__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Walking / no transportation</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Transportation__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Own car — unreliable</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Transportation_Task</targetReference>
+            </connector>
+            <label>Unreliable transit — create transportation task</label>
         </rules>
     </decisions>
     <recordCreates>
@@ -236,6 +383,9 @@ This is v1 / starter logic. More profiles can be added incrementally. All tasks 
         <label>Create WorkOne + UI Referral Task</label>
         <locationX>50</locationX>
         <locationY>840</locationY>
+        <connector>
+            <targetReference>Check_Shelter</targetReference>
+        </connector>
         <inputAssignments>
             <field>Subject</field>
             <value>
@@ -287,6 +437,303 @@ This is v1 / starter logic. More profiles can be added incrementally. All tasks 
         <object>Task</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
+    <recordCreates>
+        <name>Create_Shelter_Intake_Task</name>
+        <label>Create Shelter Intake Task</label>
+        <locationX>50</locationX>
+        <locationY>1120</locationY>
+        <connector>
+            <targetReference>Check_Risk</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <stringValue>Begin shelter intake — confirm bed availability + arrange arrival</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhoId</field>
+            <value>
+                <elementReference>$Record.caseman__Contact__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>005am00000DPSG9AAP</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>Today</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <stringValue>High</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <stringValue>Auto-generated from intake. Survivor requested shelter on the web form. (1) Confirm bed availability against Currently_In_Shelter list view. (2) Call survivor at the safe number to confirm she's still planning to come — situations change quickly. (3) Walk through arrival logistics: when, what to bring, transportation, pets, children. (4) If we're at capacity, refer to Indiana DV shelter line 1-800-332-7385 or partner shelters. Use the new Shelter Stay quick action to start the record once she's en route.</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Danger_Assessment_Task</name>
+        <label>Create Danger Assessment Task</label>
+        <locationX>50</locationX>
+        <locationY>1400</locationY>
+        <connector>
+            <targetReference>Check_Bank</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <stringValue>Schedule Danger Assessment within 48h + immediate safety planning</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhoId</field>
+            <value>
+                <elementReference>$Record.caseman__Contact__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>005am00000DPSG9AAP</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>Today</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <stringValue>High</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <stringValue>Auto-generated from intake. Risk_Level scored High based on the website-form answers (one or more of: abuser nearby, weapons in home, urgency = tonight, immediate danger). (1) Reach survivor on the safe number/email — confirm her current location and immediate safety. (2) Schedule Campbell Danger Assessment (DA-20) within 48h, ONLY in a private setting (NOT if abuser is in the room). (3) Walk through immediate safety plan: code word with friend, ready bag, exit route, where she'd go. (4) Document the call in a Case Note. If Severe (14-17) or Extreme (18+) tier emerges from the DA, escalate per SFTS protocol.</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Bank_Task</name>
+        <label>Create Bank Account Task</label>
+        <locationX>50</locationX>
+        <locationY>1680</locationY>
+        <connector>
+            <targetReference>Check_Childcare</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <stringValue>Help survivor open a survivor-only bank account (separate from abuser)</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhoId</field>
+            <value>
+                <elementReference>$Record.caseman__Contact__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>005am00000DPSG9AAP</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>FiveDaysOut</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <stringValue>Normal</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <stringValue>Auto-generated from intake. Survivor has no bank account or shares one with the abuser. A separate, abuser-blind account is foundational for financial independence — direct deposit of paychecks, benefits, and tax refunds; safe place for emergency cash. (1) Refer to a credit union (Indiana Members CU, Centra, FORUM) — they're typically more flexible than banks on minimum deposits and ID requirements. (2) If she has the new ID from the BMV task, use that. (3) Confirm she uses an address the abuser does not know — SFTS, P.O. Box, family member. (4) Consider opening a savings sub-account for emergency-fund building (FC session can help here).</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Childcare_Task</name>
+        <label>Create Childcare Task</label>
+        <locationX>50</locationX>
+        <locationY>1960</locationY>
+        <connector>
+            <targetReference>Check_Transportation</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <stringValue>Help survivor apply for Indiana CCDF childcare voucher</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhoId</field>
+            <value>
+                <elementReference>$Record.caseman__Contact__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>005am00000DPSG9AAP</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>ThreeDaysOut</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <stringValue>Normal</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <stringValue>Auto-generated from intake. Survivor needs help finding childcare — without it, employment, court appearances, and FC sessions all fall apart. (1) Apply for Indiana CCDF (Child Care Development Fund) voucher via in.gov/fssa — DV survivors qualify under priority categories. (2) Use Indiana Bridges Out of Poverty network or Brighter Futures Indiana (childcareindiana.gov) to find a participating provider near her address. (3) If she's working irregular hours, ask about evening/weekend providers. (4) Pair with WorkOne if also doing job search — they sometimes have on-site childcare during appointments.</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Transportation_Task</name>
+        <label>Create Transportation Task</label>
+        <locationX>50</locationX>
+        <locationY>2240</locationY>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <stringValue>Refer survivor to transportation resources (BMV / United Way / WorkOne)</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhoId</field>
+            <value>
+                <elementReference>$Record.caseman__Contact__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>005am00000DPSG9AAP</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>FiveDaysOut</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <stringValue>Normal</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <stringValue>Auto-generated from intake. Survivor reports no reliable transportation — major barrier to employment, court appointments, FC sessions, and childcare. (1) Check United Way 211 Indiana for emergency ride vouchers (some counties offer them for DV survivors). (2) WorkOne Hancock County provides limited gas cards + bus passes for participants in their training programs. (3) If car is repairable, refer to Vehicles for Change (vehiclesforchange.org) which serves Central Indiana. (4) For court / appointment one-offs, SFTS volunteer drivers may be available — check the staffing roster. (5) Long-term: pair with Indiana Microenterprise Loan to fund a reliable used car; or pair with WIOA training programs that include transportation stipends.</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <formulas>
+        <name>Today</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
     <formulas>
         <name>Tomorrow</name>
         <dataType>Date</dataType>
@@ -296,5 +743,10 @@ This is v1 / starter logic. More profiles can be added incrementally. All tasks 
         <name>ThreeDaysOut</name>
         <dataType>Date</dataType>
         <expression>TODAY() + 3</expression>
+    </formulas>
+    <formulas>
+        <name>FiveDaysOut</name>
+        <dataType>Date</dataType>
+        <expression>TODAY() + 5</expression>
     </formulas>
 </Flow>

@@ -105,6 +105,12 @@ Per Daniel's note: each of the 15 resources should have its contact info verifie
 
 ## P3 — Future-looking
 
+**🟡 P3 PARTIALLY SHIPPED 2026-05-15 (overnight push, after P2):**
+- ✅ P3.2 — Home page expanded with 3 new cards: New Web Intakes (24h), Awaiting Callback, Survivors Needing Follow-up. Total cards now 7 (up from 4).
+- ✅ P3.4 — Intake_Auto_Task_Templates Flow expanded from 3 → 8 profiles. New: Shelter Intake (Shelter_Requested=true, High/today), Danger Assessment (Risk_Level=High, High/today), Bank Account (no/unsafe-joint, +5d), Childcare CCDF (need help, +3d), Transportation (walking/unreliable, +5d). Each task carries deep SFTS-specific context in the Description.
+- 🚫 P3.1 (reports/dashboards) — not started overnight. Per docs/14, the realistic path is UI-build then retrieve since report metadata XML is brittle. Best handled by Daniel + Lana together.
+- 🚫 P3.3 (custom Intake FlexiPage) — not started overnight. Heavy lift, needs Lana's input on field grouping priorities.
+
 Would unlock new capabilities but not part of fixing what we built.
 
 ### P3.1 — Reports + Dashboards not built yet
