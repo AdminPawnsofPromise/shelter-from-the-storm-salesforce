@@ -71,6 +71,13 @@ These show on every Day-7 + Phase-1 record page's action bar. They make no sense
 
 ## P2 — Workflow polish
 
+**🟡 P2 PARTIALLY SHIPPED 2026-05-15 (overnight push, after P1):**
+- ✅ P2.1 — 2 Contact list views shipped (Survivors_Needing_Followup, All_Survivors_Hide_TRAINING). Currently_In_Shelter + High_Risk views already existed on Shelter_Stay__c + Danger_Assessment__c.
+- ✅ P2.2 — 2 Hotline_Call list views shipped (Awaiting_Callback, This_Week_Calls). Open_Calls_Today + High_Risk_Calls already existed.
+- ✅ P2.4 — Contact quick action reordering already done as part of P0.4.
+- 🚫 P2.3 — DEFERRED. Per-object quick actions for Hotline_Call/Shelter_Stay/FC/SSM/etc. require adding Hotline_Call__c, Shelter_Stay__c, etc. lookups on Case_Note__c so quick actions can use targetParentField to auto-fill the Contact. That's a small schema change + repoint of existing flows. Best done in daytime build, not overnight, because it can cascade through Case_Note auto-fill flows.
+- ⏭️ P2.5 / P2.6 / P2.7 — out of scope for build (P2.5 is per-user pinning docs, P2.6 is optional layout density, P2.7 is data quality).
+
 These would meaningfully improve advocate experience but aren't blockers.
 
 ### P2.1 — No SFTS-built Contact list views
