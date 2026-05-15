@@ -11,7 +11,7 @@
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>SFTS Fundraising</label>
     <navType>Standard</navType>
-    <tabs>standard-home</tabs>
+    <tabs>SFTS_Fundraising_Home</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>Donation__c</tabs>
     <tabs>Fundraising_Event__c</tabs>

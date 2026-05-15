@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Completeness_Status__c</fullName>
+    <description>Tier-1 completeness flag for Hotline_Call. The website fills the caller-side; this checks the advocate-side fields (Outcome, Contact link, Outcome_Notes, Advocate). List-view-filterable to find calls awaiting follow-up.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+  AND(
+    NOT(ISBLANK(TEXT(Outcome__c))),
+    NOT(ISNULL(Contact__c)),
+    NOT(ISNULL(Advocate__c)),
+    NOT(ISNULL(Call_End_DateTime__c))
+  ),
+  "✓ Complete",
+  "⚠ Needs review: " &amp;
+    IF(ISBLANK(TEXT(Outcome__c)), "Outcome · ", "") &amp;
+    IF(ISNULL(Contact__c), "Contact link · ", "") &amp;
+    IF(ISNULL(Advocate__c), "Advocate assigned · ", "") &amp;
+    IF(ISNULL(Call_End_DateTime__c), "Call end time · ", "")
+)</formula>
+    <formulaTreatBlanksAs>BlankAsBlank</formulaTreatBlanksAs>
+    <label>Completeness Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

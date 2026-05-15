@@ -11,7 +11,7 @@
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>SFTS Operations</label>
     <navType>Standard</navType>
-    <tabs>standard-home</tabs>
+    <tabs>SFTS_Operations_Home</tabs>
     <tabs>Hotline_Call__c</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>Shelter_Stay__c</tabs>

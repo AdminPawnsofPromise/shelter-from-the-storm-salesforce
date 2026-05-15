@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <description>On Hotline_Call__c insert: assigns the record to Lana (Executive Director), sends a notification email with a deep link, and creates a Callback Task due TODAY (every hotline call needs same-day response).</description>
+    <environments>Default</environments>
+    <interviewLabel>Hotline Call — New Submission Workflow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Hotline Call — New Submission Workflow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>176</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_Owner</targetReference>
+        </connector>
+        <object>Hotline_Call__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <recordUpdates>
+        <name>Assign_Owner</name>
+        <label>Assign Owner to Director</label>
+        <locationX>176</locationX>
+        <locationY>140</locationY>
+        <connector>
+            <targetReference>Send_Notification_Email</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>005am00000DPSG9AAP</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <actionCalls>
+        <name>Send_Notification_Email</name>
+        <label>Send Notification Email</label>
+        <locationX>176</locationX>
+        <locationY>280</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Create_Callback_Task</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>director@sftsinc.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Email_Subject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Email_Body</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <recordCreates>
+        <name>Create_Callback_Task</name>
+        <label>Create Callback Task</label>
+        <locationX>176</locationX>
+        <locationY>420</locationY>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>Task_Subject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>005am00000DPSG9AAP</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>Today_Date</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <stringValue>High</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <formulas>
+        <name>Email_Subject</name>
+        <dataType>String</dataType>
+        <expression>"New SFTS hotline call — " &amp; {!$Record.Name} &amp; " — " &amp; IF(ISBLANK({!$Record.Caller_Name__c}), "(anonymous)", {!$Record.Caller_Name__c})</expression>
+    </formulas>
+    <formulas>
+        <name>Email_Body</name>
+        <dataType>String</dataType>
+        <expression>"&lt;p&gt;A new hotline call just came in from the website quick-intake form.&lt;/p&gt;" &amp;
+"&lt;p&gt;&lt;strong&gt;Caller:&lt;/strong&gt; " &amp; IF(ISBLANK({!$Record.Caller_Name__c}), "(anonymous)", {!$Record.Caller_Name__c}) &amp; "&lt;br&gt;" &amp;
+"&lt;strong&gt;Phone:&lt;/strong&gt; " &amp; IF(ISBLANK({!$Record.Caller_Phone__c}), "(not provided)", {!$Record.Caller_Phone__c}) &amp; "&lt;br&gt;" &amp;
+"&lt;strong&gt;Email:&lt;/strong&gt; " &amp; IF(ISBLANK({!$Record.Caller_Email__c}), "(not provided)", {!$Record.Caller_Email__c}) &amp; "&lt;br&gt;" &amp;
+"&lt;strong&gt;Safe to call back:&lt;/strong&gt; " &amp; IF({!$Record.Phone_Safe_To_Return__c}, "YES", "NO — do not leave voicemail") &amp; "&lt;/p&gt;" &amp;
+"&lt;p&gt;&lt;a href=\"https://sftsinc.lightning.force.com/lightning/r/Hotline_Call__c/" &amp; {!$Record.Id} &amp; "/view\"&gt;Open this hotline call in Salesforce →&lt;/a&gt;&lt;/p&gt;" &amp;
+"&lt;p style=\"color: #666; font-size: 0.9em;\"&gt;Owner assigned: Director (Lana Stephens). A same-day callback task has been created.&lt;/p&gt;"</expression>
+    </formulas>
+    <formulas>
+        <name>Task_Subject</name>
+        <dataType>String</dataType>
+        <expression>"Call back: " &amp; IF(ISBLANK({!$Record.Caller_Name__c}), "(anonymous caller)", {!$Record.Caller_Name__c}) &amp; " — " &amp; {!$Record.Name}</expression>
+    </formulas>
+    <formulas>
+        <name>Today_Date</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+</Flow>

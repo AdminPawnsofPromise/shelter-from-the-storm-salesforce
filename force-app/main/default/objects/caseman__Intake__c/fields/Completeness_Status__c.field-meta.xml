@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Completeness_Status__c</fullName>
+    <description>Tier-1 completeness flag. Returns a checkmark if all advocate-completion fields are populated, otherwise an emoji warning + list of what's missing. Use in list-view filters to find records needing follow-up. Does NOT block save — just surfaces incompleteness.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+  AND(
+    NOT(ISBLANK(TEXT(Risk_Level__c))),
+    NOT(ISBLANK(TEXT(Referral_Source__c))),
+    TEXT(caseman__Stage__c) != "Not Started",
+    OwnerId != "005am00000DPMM1AAP"
+  ),
+  "✓ Complete",
+  "⚠ Needs review: " &amp;
+    IF(ISBLANK(TEXT(Risk_Level__c)), "Risk Level · ", "") &amp;
+    IF(ISBLANK(TEXT(Referral_Source__c)), "Referral Source · ", "") &amp;
+    IF(TEXT(caseman__Stage__c) = "Not Started", "Stage still Not Started · ", "") &amp;
+    IF(OwnerId = "005am00000DPMM1AAP", "Owner still integration user · ", "")
+)</formula>
+    <formulaTreatBlanksAs>BlankAsBlank</formulaTreatBlanksAs>
+    <label>Completeness Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

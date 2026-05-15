@@ -16,6 +16,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>caseman__Intake__c.Completeness_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Hotline_Call__c.Completeness_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Contact.Auto_In_Service_Area__c</field>
         <readable>true</readable>
     </fieldPermissions>

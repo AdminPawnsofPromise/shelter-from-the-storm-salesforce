@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <description>On Shelter_Stay__c insert with a linked Intake: advance the parent Intake's Stage from "Not Started" to "In Progress" so the case status reflects active engagement. No-op if the Intake stage is already past Not Started.</description>
+    <environments>Default</environments>
+    <interviewLabel>Shelter Stay — Advance Intake Stage {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Shelter Stay — Advance Intake Stage</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>176</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Find_Intake_for_Contact</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Intake__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Shelter_Stay__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <recordLookups>
+        <name>Find_Intake_for_Contact</name>
+        <label>Find linked Intake</label>
+        <locationX>176</locationX>
+        <locationY>140</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Intake_Not_Started</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Intake__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>caseman__Intake__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <decisions>
+        <name>Is_Intake_Not_Started</name>
+        <label>Is Intake still Not Started?</label>
+        <locationX>176</locationX>
+        <locationY>280</locationY>
+        <defaultConnectorLabel>No — leave Stage as is</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Advance_Stage</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_Intake_for_Contact.caseman__Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Not Started</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Mutate_Intake_Stage</targetReference>
+            </connector>
+            <label>Yes — advance Stage</label>
+        </rules>
+    </decisions>
+    <assignments>
+        <name>Mutate_Intake_Stage</name>
+        <label>Set Intake stage to In Progress</label>
+        <locationX>50</locationX>
+        <locationY>420</locationY>
+        <assignmentItems>
+            <assignToReference>Find_Intake_for_Contact.caseman__Stage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Advance_Stage</targetReference>
+        </connector>
+    </assignments>
+    <recordUpdates>
+        <name>Advance_Stage</name>
+        <label>Save updated Intake</label>
+        <locationX>50</locationX>
+        <locationY>540</locationY>
+        <inputReference>Find_Intake_for_Contact</inputReference>
+    </recordUpdates>
+</Flow>
