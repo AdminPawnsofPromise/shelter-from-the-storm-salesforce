@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>All_Internal_Users_RW</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>All internal SFTS users get read/write on every Intake record. REQUIRED for the Intake auto-assignment Flow — without this, Lana (the new owner) lacks read permission on records created by the integration user, and the Flow's OwnerId transfer fails with TRANSFER_REQUIRES_READ. Matches the all-internal pattern used across all other SFTS custom objects.</description>
+        <label>All Internal Users RW</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <allInternalUsers></allInternalUsers>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>
