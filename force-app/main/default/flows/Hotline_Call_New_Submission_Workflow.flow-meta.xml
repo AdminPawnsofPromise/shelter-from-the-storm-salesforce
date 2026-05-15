@@ -35,7 +35,7 @@
         <locationX>176</locationX>
         <locationY>140</locationY>
         <connector>
-            <targetReference>Send_Notification_Email</targetReference>
+            <targetReference>Add_Email_Recipients</targetReference>
         </connector>
         <inputAssignments>
             <field>OwnerId</field>
@@ -45,6 +45,36 @@
         </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
+    <assignments>
+        <name>Add_Email_Recipients</name>
+        <label>Build recipient list</label>
+        <locationX>176</locationX>
+        <locationY>210</locationY>
+        <assignmentItems>
+            <assignToReference>EmailRecipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>director@sftsinc.com</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>EmailRecipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>clientadvocate@sftsinc.com</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Notification_Email</targetReference>
+        </connector>
+    </assignments>
+    <variables>
+        <name>EmailRecipients</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
     <actionCalls>
         <name>Send_Notification_Email</name>
         <label>Send Notification Email</label>
@@ -57,9 +87,9 @@
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
-            <name>emailAddresses</name>
+            <name>emailAddressesArray</name>
             <value>
-                <stringValue>director@sftsinc.com</stringValue>
+                <elementReference>EmailRecipients</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
