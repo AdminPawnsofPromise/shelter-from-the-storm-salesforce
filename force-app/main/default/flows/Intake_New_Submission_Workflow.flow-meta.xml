@@ -22,29 +22,13 @@
         <locationX>176</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Assign_Owner</targetReference>
+            <targetReference>Add_Email_Recipients</targetReference>
         </connector>
         <object>caseman__Intake__c</object>
         <recordTriggerType>Create</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
-    <recordUpdates>
-        <name>Assign_Owner</name>
-        <label>Assign Owner to Director</label>
-        <locationX>176</locationX>
-        <locationY>140</locationY>
-        <connector>
-            <targetReference>Add_Email_Recipients</targetReference>
-        </connector>
-        <inputAssignments>
-            <field>OwnerId</field>
-            <value>
-                <stringValue>005am00000DPSG9AAP</stringValue>
-            </value>
-        </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
     <assignments>
         <name>Add_Email_Recipients</name>
         <label>Build recipient list</label>
