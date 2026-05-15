@@ -153,7 +153,7 @@
 "&lt;strong&gt;Shelter requested:&lt;/strong&gt; " &amp; IF({!$Record.Shelter_Requested__c}, "YES", "no") &amp; "&lt;br&gt;" &amp;
 "&lt;strong&gt;Children present:&lt;/strong&gt; " &amp; IF({!$Record.Children_Present__c}, "YES (" &amp; TEXT({!$Record.Number_of_Children__c}) &amp; ")", "no") &amp; "&lt;br&gt;" &amp;
 "&lt;strong&gt;Referral source:&lt;/strong&gt; " &amp; IF(ISBLANK(TEXT({!$Record.Referral_Source__c})), "(not specified)", TEXT({!$Record.Referral_Source__c})) &amp; "&lt;/p&gt;" &amp;
-"&lt;p&gt;&lt;a href=\"https://sftsinc.lightning.force.com/lightning/r/caseman__Intake__c/" &amp; {!$Record.Id} &amp; "/view\"&gt;Open this intake in Salesforce →&lt;/a&gt;&lt;/p&gt;" &amp;
+"&lt;p&gt;&lt;a href=\"https://shelterfromthestorminc.lightning.force.com/lightning/r/caseman__Intake__c/" &amp; {!$Record.Id} &amp; "/view\"&gt;Open this intake in Salesforce →&lt;/a&gt;&lt;/p&gt;" &amp;
 "&lt;p style=\"color: #666; font-size: 0.9em;\"&gt;Owner assigned: Director (Lana Stephens). A follow-up task has been created automatically.&lt;/p&gt;"</expression>
     </formulas>
     <formulas>

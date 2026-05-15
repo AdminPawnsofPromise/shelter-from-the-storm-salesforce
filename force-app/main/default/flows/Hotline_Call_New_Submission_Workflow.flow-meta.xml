@@ -153,7 +153,7 @@
 "&lt;strong&gt;Phone:&lt;/strong&gt; " &amp; IF(ISBLANK({!$Record.Caller_Phone__c}), "(not provided)", {!$Record.Caller_Phone__c}) &amp; "&lt;br&gt;" &amp;
 "&lt;strong&gt;Email:&lt;/strong&gt; " &amp; IF(ISBLANK({!$Record.Caller_Email__c}), "(not provided)", {!$Record.Caller_Email__c}) &amp; "&lt;br&gt;" &amp;
 "&lt;strong&gt;Safe to call back:&lt;/strong&gt; " &amp; IF({!$Record.Phone_Safe_To_Return__c}, "YES", "NO — do not leave voicemail") &amp; "&lt;/p&gt;" &amp;
-"&lt;p&gt;&lt;a href=\"https://sftsinc.lightning.force.com/lightning/r/Hotline_Call__c/" &amp; {!$Record.Id} &amp; "/view\"&gt;Open this hotline call in Salesforce →&lt;/a&gt;&lt;/p&gt;" &amp;
+"&lt;p&gt;&lt;a href=\"https://shelterfromthestorminc.lightning.force.com/lightning/r/Hotline_Call__c/" &amp; {!$Record.Id} &amp; "/view\"&gt;Open this hotline call in Salesforce →&lt;/a&gt;&lt;/p&gt;" &amp;
 "&lt;p style=\"color: #666; font-size: 0.9em;\"&gt;Owner assigned: Director (Lana Stephens). A same-day callback task has been created.&lt;/p&gt;"</expression>
     </formulas>
     <formulas>
