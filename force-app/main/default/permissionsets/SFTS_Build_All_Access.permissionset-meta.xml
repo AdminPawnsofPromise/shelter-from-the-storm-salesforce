@@ -666,6 +666,32 @@
     <fieldPermissions><editable>true</editable><field>Contact.Last_Contact_Date__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Contact.Days_Since_Last_Contact__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>true</editable><field>Contact.Total_Service_Hours__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>SFTS_Program__c.Description__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>SFTS_Program__c.Category__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>SFTS_Program__c.Coordinator__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>SFTS_Program__c.Active__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>SFTS_Program__c.Funding_Source__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>SFTS_Program__c.Capacity__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>SFTS_Resource__c.Category__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>SFTS_Resource__c.Description__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>SFTS_Resource__c.Eligibility_Notes__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>SFTS_Resource__c.Apply_URL__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>SFTS_Resource__c.Apply_Phone__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>SFTS_Resource__c.Internal_Notes__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>SFTS_Resource__c.Active__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>SFTS_Resource__c.Agency__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Service_Episode__c.Program__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Referral__c.Resource__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>caseman__Intake__c.Employment_Status__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>caseman__Intake__c.Income_Source__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>caseman__Intake__c.Approximate_Monthly_Income__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>caseman__Intake__c.Currently_Receiving_Benefits__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>caseman__Intake__c.Has_Insurance__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>caseman__Intake__c.Education_Level__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>caseman__Intake__c.Has_Bank_Account__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>caseman__Intake__c.Has_Government_ID__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>caseman__Intake__c.Transportation__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>caseman__Intake__c.Childcare_Status__c</field><readable>true</readable></fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>SFTS Build All Access</label>
     <license>Salesforce</license>
@@ -804,6 +830,24 @@
         <object>Case_Goal__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>SFTS_Program__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>SFTS_Resource__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <tabSettings>
         <tab>Danger_Assessment__c</tab>
         <visibility>Visible</visibility>
@@ -862,6 +906,14 @@
     </tabSettings>
     <tabSettings>
         <tab>Case_Goal__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>SFTS_Program__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>SFTS_Resource__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>

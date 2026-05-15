@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_Insurance__c</fullName>
+    <description>Current health insurance coverage. No → trigger Medicaid application task.</description>
+    <label>Has Health Insurance</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>Yes — private / through job</fullName><default>false</default><label>Yes — private / through job</label></value>
+            <value><fullName>Yes — Medicaid / HIP</fullName><default>false</default><label>Yes — Medicaid / HIP</label></value>
+            <value><fullName>Yes — Marketplace (ACA)</fullName><default>false</default><label>Yes — Marketplace (ACA)</label></value>
+            <value><fullName>Yes — Medicare</fullName><default>false</default><label>Yes — Medicare</label></value>
+            <value><fullName>Yes — Other</fullName><default>false</default><label>Yes — Other</label></value>
+            <value><fullName>No</fullName><default>false</default><label>No</label></value>
+            <value><fullName>Don't know</fullName><default>false</default><label>Don't know</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

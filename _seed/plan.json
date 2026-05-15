@@ -1,0 +1,4 @@
+[
+  { "sobject": "SFTS_Program__c", "saveRefs": false, "resolveRefs": false, "files": ["programs.json"] },
+  { "sobject": "SFTS_Resource__c", "saveRefs": false, "resolveRefs": false, "files": ["resources.json"] }
+]

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Transportation__c</fullName>
+    <description>How the survivor gets around. Drives transportation-related service planning and bus-pass / ride-share referrals.</description>
+    <label>Transportation</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>Own car — reliable</fullName><default>false</default><label>Own car — reliable</label></value>
+            <value><fullName>Own car — unreliable</fullName><default>false</default><label>Own car — unreliable</label></value>
+            <value><fullName>Public transit</fullName><default>false</default><label>Public transit</label></value>
+            <value><fullName>Rides from family / friends</fullName><default>false</default><label>Rides from family / friends</label></value>
+            <value><fullName>Walking / no transportation</fullName><default>false</default><label>Walking / no transportation</label></value>
+            <value><fullName>Other</fullName><default>false</default><label>Other</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

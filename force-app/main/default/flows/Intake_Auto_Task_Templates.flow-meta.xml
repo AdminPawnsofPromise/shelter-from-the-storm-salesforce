@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <description>STARTER profile engine for intake-driven task generation. On caseman__Intake__c insert, evaluates the new economic-stabilization fields and creates Tasks for common follow-up patterns:
+- If no government ID → create "Help apply for replacement ID" task (high priority, due today+1)
+- If no health insurance → create "Help apply for Medicaid" task (due today+3)
+- If unemployed AND looking → create "Refer to WorkOne + Unemployment Insurance" task (due today+3)
+
+This is v1 / starter logic. More profiles can be added incrementally. All tasks are owned by Lana (Director); advocate refines/reassigns as needed.</description>
+    <environments>Default</environments>
+    <interviewLabel>Intake — Auto Task Templates {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Intake — Auto Task Templates</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>176</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Government_ID</targetReference>
+        </connector>
+        <object>caseman__Intake__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <decisions>
+        <name>Check_Government_ID</name>
+        <label>Missing government ID?</label>
+        <locationX>176</locationX>
+        <locationY>140</locationY>
+        <defaultConnectorLabel>Has ID — skip</defaultConnectorLabel>
+        <defaultConnector>
+            <targetReference>Check_Insurance</targetReference>
+        </defaultConnector>
+        <rules>
+            <name>No_ID</name>
+            <conditionLogic>1 OR 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Has_Government_ID__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No — abuser took / destroyed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Has_Government_ID__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No — expired / never had</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_ID_Task</targetReference>
+            </connector>
+            <label>Missing ID — create task</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Insurance</name>
+        <label>No health insurance?</label>
+        <locationX>176</locationX>
+        <locationY>420</locationY>
+        <defaultConnectorLabel>Has insurance — skip</defaultConnectorLabel>
+        <defaultConnector>
+            <targetReference>Check_Employment</targetReference>
+        </defaultConnector>
+        <rules>
+            <name>No_Insurance</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Has_Insurance__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Medicaid_Task</targetReference>
+            </connector>
+            <label>No insurance — create Medicaid task</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Employment</name>
+        <label>Unemployed and looking?</label>
+        <locationX>176</locationX>
+        <locationY>700</locationY>
+        <defaultConnectorLabel>No action</defaultConnectorLabel>
+        <rules>
+            <name>Unemployed_Looking</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Employment_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Unemployed — looking</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_WorkOne_Task</targetReference>
+            </connector>
+            <label>Unemployed — create WorkOne + UI task</label>
+        </rules>
+    </decisions>
+    <recordCreates>
+        <name>Create_ID_Task</name>
+        <label>Create ID Replacement Task</label>
+        <locationX>50</locationX>
+        <locationY>280</locationY>
+        <connector>
+            <targetReference>Check_Insurance</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <stringValue>Help survivor get replacement government ID (BMV + fee waiver letter)</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>005am00000DPSG9AAP</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>Tomorrow</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <stringValue>High</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <stringValue>Auto-generated from intake. Survivor reported no current government ID. Without ID, most benefits applications fail — handle this first. SFTS issues a fee-waiver attestation letter; survivor takes to a BMV branch with proof of identity (birth cert, SSN card, or fallback docs).</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Medicaid_Task</name>
+        <label>Create Medicaid Application Task</label>
+        <locationX>50</locationX>
+        <locationY>560</locationY>
+        <connector>
+            <targetReference>Check_Employment</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <stringValue>Help survivor apply for Indiana Medicaid / HIP 2.0</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>005am00000DPSG9AAP</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>ThreeDaysOut</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <stringValue>Normal</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <stringValue>Auto-generated from intake. Survivor reported no current health insurance. Indiana Medicaid / HIP 2.0 likely covers them post-separation. Apply via fssabenefits.in.gov; pair with SNAP application if also applicable. See SFTS_Resource catalog → Indiana Medicaid / HIP 2.0 for details.</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_WorkOne_Task</name>
+        <label>Create WorkOne + UI Referral Task</label>
+        <locationX>50</locationX>
+        <locationY>840</locationY>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <stringValue>Refer survivor to WorkOne + help file Unemployment Insurance (DV exemption)</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>005am00000DPSG9AAP</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>ThreeDaysOut</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <stringValue>Normal</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <stringValue>Auto-generated from intake. Survivor reported unemployed and looking for work. (1) Refer to Hancock County WorkOne in Greenfield — walk-in welcome, can access WIOA training scholarships. (2) Help file Unemployment Insurance — Indiana recognizes DV-induced separation as good-cause; survivor MUST explicitly request DV exemption when filing or system flags voluntary quit. See SFTS_Resource catalog for both.</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <formulas>
+        <name>Tomorrow</name>
+        <dataType>Date</dataType>
+        <expression>TODAY() + 1</expression>
+    </formulas>
+    <formulas>
+        <name>ThreeDaysOut</name>
+        <dataType>Date</dataType>
+        <expression>TODAY() + 3</expression>
+    </formulas>
+</Flow>

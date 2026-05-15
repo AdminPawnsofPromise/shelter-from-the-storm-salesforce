@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resource__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>If this referral is for an external benefit/service in our Resources catalog (SNAP, TANF, Medicaid, etc.), link it here. Otherwise leave blank — the free-text Referred_To_Agency field still works for ad-hoc referrals.</description>
+    <label>Resource (Catalog)</label>
+    <referenceTo>SFTS_Resource__c</referenceTo>
+    <relationshipLabel>Referrals</relationshipLabel>
+    <relationshipName>Referrals</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

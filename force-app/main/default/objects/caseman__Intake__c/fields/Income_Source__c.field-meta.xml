@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Income_Source__c</fullName>
+    <description>Where the survivor's income comes from. Multi-select — survivors often have multiple sources or none.</description>
+    <label>Income Source(s)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>Job / Wages</fullName><default>false</default><label>Job / Wages</label></value>
+            <value><fullName>Self-employment</fullName><default>false</default><label>Self-employment</label></value>
+            <value><fullName>SSI / SSDI</fullName><default>false</default><label>SSI / SSDI</label></value>
+            <value><fullName>TANF</fullName><default>false</default><label>TANF</label></value>
+            <value><fullName>Unemployment</fullName><default>false</default><label>Unemployment</label></value>
+            <value><fullName>Family / friend support</fullName><default>false</default><label>Family / friend support</label></value>
+            <value><fullName>Child support</fullName><default>false</default><label>Child support</label></value>
+            <value><fullName>Other</fullName><default>false</default><label>Other</label></value>
+            <value><fullName>None</fullName><default>false</default><label>None</label></value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

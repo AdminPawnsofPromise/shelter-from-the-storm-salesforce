@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Education_Level__c</fullName>
+    <description>Highest level of education completed. Drives job-placement planning and WorkOne training eligibility recommendations.</description>
+    <label>Education Level</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>Less than high school</fullName><default>false</default><label>Less than high school</label></value>
+            <value><fullName>HS diploma or GED</fullName><default>false</default><label>HS diploma or GED</label></value>
+            <value><fullName>Some college / no degree</fullName><default>false</default><label>Some college / no degree</label></value>
+            <value><fullName>Trade certification</fullName><default>false</default><label>Trade certification</label></value>
+            <value><fullName>Associate's degree</fullName><default>false</default><label>Associate's degree</label></value>
+            <value><fullName>Bachelor's degree</fullName><default>false</default><label>Bachelor's degree</label></value>
+            <value><fullName>Graduate degree</fullName><default>false</default><label>Graduate degree</label></value>
+            <value><fullName>Prefer not to say</fullName><default>false</default><label>Prefer not to say</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
