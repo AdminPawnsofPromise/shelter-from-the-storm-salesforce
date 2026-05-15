@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>Donation__c</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Donations grouped by designation (restricted vs unrestricted) for 990-N prep and funder reporting. Powers grouping/matrix reports beyond the standard auto-generated Donation report type.</description>
+    <label>SFTS: Donations by Designation</label>
+    <sections>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Name</field>
+            <table>Donation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Donor__c</field>
+            <table>Donation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Amount__c</field>
+            <table>Donation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Donation_Date__c</field>
+            <table>Donation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Donation_Type__c</field>
+            <table>Donation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Designated_For__c</field>
+            <table>Donation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Acknowledgment_Sent__c</field>
+            <table>Donation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Notes__c</field>
+            <table>Donation__c</table>
+        </columns>
+        <masterLabel>Donation</masterLabel>
+    </sections>
+</ReportType>
