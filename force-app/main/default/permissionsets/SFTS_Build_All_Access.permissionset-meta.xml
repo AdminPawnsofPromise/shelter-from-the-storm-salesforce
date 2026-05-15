@@ -645,6 +645,10 @@
     <fieldPermissions><editable>true</editable><field>Case_Note__c.Duration_Minutes__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>true</editable><field>Case_Note__c.Advocate__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>true</editable><field>Case_Note__c.Confidential__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Note__c.Hotline_Call__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Note__c.Shelter_Stay__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Note__c.Financial_Counseling__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Note__c.Self_Sufficiency_Matrix__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>true</editable><field>Service_Episode__c.Intake__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>true</editable><field>Service_Episode__c.Service_Subtype__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>true</editable><field>Service_Episode__c.Hours_Spent__c</field><readable>true</readable></fieldPermissions>

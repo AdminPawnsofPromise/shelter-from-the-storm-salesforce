@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Financial_Counseling__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Financial Counseling session this Case Note follows from. Auto-set when "Log Case Note" is launched from an FC record. Pattern: post-session reflection or follow-up notes.</description>
+    <label>Financial Counseling Session</label>
+    <referenceTo>Financial_Counseling__c</referenceTo>
+    <relationshipLabel>Case Notes</relationshipLabel>
+    <relationshipName>Case_Notes</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>
