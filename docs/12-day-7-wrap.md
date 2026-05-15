@@ -121,4 +121,41 @@ Plus the pre-session carryover commit `5bdeaae` (snapshot doc + progress email d
 
 ## Working tree state
 
-Clean. All 22 Day-7 commits are on branch `claude/quirky-nightingale-10cb2b`. No `origin` remote configured (yet).
+Clean. All Day-7 commits are on branch `SFTS-SALESFORCE-GO-LIVE` (renamed from the original `claude/quirky-nightingale-10cb2b`).
+
+## Post-session updates (added after main session)
+
+The "What shipped" section above lists 22 items. Three more shipped after that section was written:
+
+23. **`SFTS_Fundraiser` permset** — fundraiser-role equivalent of `SFTS_Advocate`. CRUD-minus-delete on Donation / Fundraising_Event / Grant / Sponsorship_Tier / Contact. (commit `eadce41`)
+24. **Wrap doc update + full commit list** (this doc — commit `04e17a1`)
+25. **Training scenarios doc** ([docs/13-training-scenarios.md](13-training-scenarios.md)) — 30-min walkthrough script for training Lana, using the 44 training records loaded into PROD. Covers all 5 survivor profiles (Alice / Brenda / Cynthia / Diana / Erica) + fundraising-side training. (commit `2040aa0`)
+26. **Reports + dashboards blueprint** ([docs/14-reports-and-dashboards-blueprint.md](14-reports-and-dashboards-blueprint.md)) — full design spec for 21 reports + 4 dashboards across advocate, admin, funder, and board audiences. Future-build doc; nothing built yet, but design thinking is locked in. (commit `41c3cef`)
+
+### 44 training records loaded in PROD (sfts-prod-DANGER)
+
+| Profile | Demonstrates |
+|---|---|
+| TRAINING Alice Trainee | Crisis caller (no shelter), safety plan workflow |
+| TRAINING Brenda Practice | Recently admitted, baseline state |
+| TRAINING Cynthia Demo | Mid-program, active casework (high-risk, multi-service) |
+| TRAINING Diana Walkthrough | Exited successfully — the outcomes-reporting story (SSM Intake→Mid→Exit) |
+| TRAINING Erica Example | Mandatory report (DCS) case, imminent danger workflow |
+| TRAINING DonorOne Smith + DonorTwo Acme Corp | Individual + business donor for fundraising training |
+
+Plus: 1 Cowboy Ball 2026 event, 1 Gold sponsorship tier, 1 BRCF grant in progress, full child records (hotline calls, intakes, shelter stays, assessments, FCs, SSMs, referrals).
+
+### UI activations completed (post-session, by Daniel)
+
+The three UI tasks flagged as "still YOUR task" earlier are **DONE**:
+
+1. ✅ **`SFTS_Operations_Home` FlexiPage activated** as default home for SFTS Operations app
+2. ✅ **`SFTS_Fundraising_Home` FlexiPage activated** as default home for SFTS Fundraising app
+3. ✅ **5 Quick Actions placed on Contact page layout** (New Financial Counseling, New SSM Assessment, Make Referral, Log Donation, Log Service Delivery)
+
+### GitHub state
+
+- Repository: https://github.com/AdminPawnsofPromise/shelter-from-the-storm-salesforce
+- Branch: `SFTS-SALESFORCE-GO-LIVE`
+- **PR #1 OPEN** (https://github.com/AdminPawnsofPromise/shelter-from-the-storm-salesforce/pull/1) — "Ready to merge", 25+ commits, 458+ files
+- `main` branch on remote has only auto-generated initial commit; full history landing on merge.
