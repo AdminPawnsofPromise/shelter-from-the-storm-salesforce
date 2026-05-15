@@ -114,6 +114,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>WhoId</field>
+            <value>
+                <elementReference>$Record.caseman__Contact__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>OwnerId</field>
             <value>
                 <stringValue>005am00000DPSG9AAP</stringValue>

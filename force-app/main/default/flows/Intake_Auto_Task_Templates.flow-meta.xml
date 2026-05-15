@@ -134,6 +134,12 @@ This is v1 / starter logic. More profiles can be added incrementally. All tasks 
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>WhoId</field>
+            <value>
+                <elementReference>$Record.caseman__Contact__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>OwnerId</field>
             <value>
                 <stringValue>005am00000DPSG9AAP</stringValue>
@@ -187,6 +193,12 @@ This is v1 / starter logic. More profiles can be added incrementally. All tasks 
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>WhoId</field>
+            <value>
+                <elementReference>$Record.caseman__Contact__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>OwnerId</field>
             <value>
                 <stringValue>005am00000DPSG9AAP</stringValue>
@@ -234,6 +246,12 @@ This is v1 / starter logic. More profiles can be added incrementally. All tasks 
             <field>WhatId</field>
             <value>
                 <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhoId</field>
+            <value>
+                <elementReference>$Record.caseman__Contact__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>

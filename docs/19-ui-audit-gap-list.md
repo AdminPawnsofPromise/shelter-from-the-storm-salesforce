@@ -10,6 +10,8 @@
 
 ## P0 — Blocking advocate workflow
 
+**✅ ALL P0 ITEMS SHIPPED 2026-05-15 (overnight push).** Deployed to dev + prod, both Intake Flows reactivated to new versions in prod via Tooling REST PATCH.
+
 These prevent core daily use. Fix first.
 
 ### P0.1 — Case Note Body is invisible on the record page
