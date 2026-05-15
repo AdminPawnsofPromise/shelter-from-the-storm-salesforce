@@ -2,7 +2,79 @@
 
 **Purpose:** Single entry point for picking up the SFTS Salesforce build in a new chat or session. Read this first; everything else branches from here.
 
-**As of:** End of Day 7 (2026-05-14)
+**As of:** End of Day 8 (2026-05-15)
+
+---
+
+## 🟢 DAY 8 ADDENDUM — Read this first
+
+**Day 8 was a major build day on top of Day 7's go-live.** New stuff that's now live in prod:
+
+### Foundation expansions
+- **4 new custom objects** for case-management depth: `Case_Note__c` (interaction journal), `Service_Episode__c` (VOCA service tracking), `Case_Plan__c` (case-level plan), `Case_Goal__c` (SMART goals under a plan, master-detail child)
+- **2 catalog objects** with seed data: `SFTS_Program__c` (12 internal SFTS programs) + `SFTS_Resource__c` (15 external benefits like SNAP/TANF/Medicaid/etc.) — see `_seed/programs.json` and `_seed/resources.json`
+- **10 new economic-stabilization fields on `caseman__Intake__c`** capturing employment / income / benefits / education / insurance / ID / bank / transportation / childcare
+- **Rollup fields on Contact:** `Last_Contact_Date__c`, `Days_Since_Last_Contact__c`, `Total_Service_Hours__c`
+- **`Caller_Email__c` on Hotline_Call** for the website's "phone or email" intake field
+- **`Completeness_Status__c` formula fields** on both `caseman__Intake__c` and `Hotline_Call__c` (advocate-completion flag)
+- **Reports/dashboards foundation:** 4 Custom Report Types deployed (`SFTS_Contacts_with_Shelter_Stays`, `SFTS_Contacts_with_SSM_Assessments`, `SFTS_Donations_by_Designation`, `SFTS_Contacts_with_Donations`) + report folders + dashboard folders. No reports built yet — that's next phase.
+
+### Flow / automation layer (THE BIG ONE)
+The website→CRM pipeline now has a brain. On every web intake:
+- Owner = Lana (set in JS payload — `Intake_New_Submission_Workflow` Flow used to do this but caseman__Intake__c is a managed-package object with private OWD that blocked the Flow transfer; JS-payload-set was the fix)
+- Email alert to BOTH `director@sftsinc.com` (Lana) AND `clientadvocate@sftsinc.com` (Brittany) with deep link
+- Follow-up Task created, owned by Lana, due today if Risk_Level=High else tomorrow
+- **`Intake_Auto_Task_Templates` Flow** evaluates the new economic fields and auto-creates up to 3 follow-up tasks:
+  - Has_Government_ID=No → "Help survivor get replacement ID + fee waiver letter" (High priority, due tomorrow)
+  - Has_Insurance=No → "Help apply for Indiana Medicaid / HIP 2.0" (Normal, +3 days)
+  - Employment_Status=Unemployed — looking → "Refer to WorkOne + file UI with DV exemption" (Normal, +3 days)
+
+Same Owner-set-via-payload pattern for `Hotline_Call__c`. Hotline_Call also has its own After-Save Flow for email alert + callback task.
+
+`Shelter_Stay_Advance_Intake_Stage` Flow: when a new Shelter Stay is linked to an Intake, auto-advances Intake `caseman__Stage__c` from "Not Started" to "In Progress".
+
+### Critical platform gotcha discovered today
+**This org does NOT have "Deploy processes and flows as active" enabled in Setup → Process Automation Settings.** Every Flow deployed via metadata lands as DRAFT regardless of `<status>Active</status>` in the XML. After any Flow deploy, must manually activate via Tooling REST PATCH:
+```
+PATCH /services/data/v62.0/tooling/sobjects/FlowDefinition/<id>
+{ "Metadata": { "activeVersionNumber": <N> } }
+```
+This is documented in `memory/reference_sfts_flow_activation.md`. If a Flow's expected side effects don't fire after deploy, **check Status FIRST** before debugging logic.
+
+### Website changes (sfts-site/, deployed to Netlify by Daniel via drag-drop)
+- `get-help.html` Step 4 expanded with 10 new economic-stabilization questions (trauma-informed phrasing, all optional)
+- `netlify/functions/salesforce-intake.js`:
+  - Sets `OwnerId` to Lana in Contact + Intake + Hotline_Call payloads
+  - Caller_Email vs Caller_Phone routing (detects `@` in input)
+  - Maps 10 new form fields to caseman__Intake__c with picklist translation tables
+  - Risk_Level expanded: high if abuser_nearby OR weapons OR urgency=tonight OR safety_status=immediate_danger
+  - 6 "easy win" intake field mappings populated (Number_of_Children, Children_Present, Shelter_Requested, Referral_Source, caseman__Description, Safe_Phone)
+- The website URL pattern in Flow emails is `https://shelterfromthestorminc.lightning.force.com/...` (NOT `sftsinc.lightning.force.com` — that subdomain doesn't exist for the org)
+
+### Permission set assignments
+Both Lana (`director@sftsinc.com`) AND Brittany (`clientadvocate@sftsinc.com`) now have all 3 SFTS permsets: SFTS_Advocate + SFTS_Build_All_Access + SFTS_Fundraiser. Brittany handles chief-of-staff + admin functions on top of advocate work.
+
+### Caseman__Intake__c sharing rule
+Added `All_Internal_Users_RW` sharing rule on `caseman__Intake__c` so advocates can see Intakes they don't own. Required for any future Flow that touches Intake ownership.
+
+### 🚨 KEY OUTSTANDING WORK — docs/19
+
+End of Day 8, Daniel + Claude did a tab-by-tab UI audit and discovered **the build is solid but page layouts hide ~half the fields**. Every Day-7 + Phase-1 custom object record page is missing critical fields from its Details layout because Salesforce auto-generated minimal layouts and we never customized them.
+
+**Most egregious:**
+- **Case Note `Body` field is hidden** — advocates can't see the note text without clicking Edit
+- **SSM record page hides 8 of 10 domain scores** — outcomes-measurement gold standard is invisible
+- **Contact Related tab missing caseman__Intake** — no way to navigate from a survivor to their case
+- **Contact page hides ALL SFTS demographics + rollups** (VOCA, Indiana, caseman, Days_Since_Last_Contact, etc.)
+- **Tasks have WhatId but no WhoId** — don't surface on Contact's Activity panel
+
+**[docs/19-ui-audit-gap-list.md](19-ui-audit-gap-list.md) is the master gap list** with priorities P0-P3 and estimated effort. Recommended first thing in next session: knock out the 5 P0 items in ~3 hours, then bundle P1 layout fixes into one big deploy.
+
+All P0 + P1 work is pure metadata (layout XML edits + 1 Flow update). No Apex, no schema changes.
+
+---
+
+## Below is the original Day-7 resume content (still mostly accurate)
 
 ---
 
