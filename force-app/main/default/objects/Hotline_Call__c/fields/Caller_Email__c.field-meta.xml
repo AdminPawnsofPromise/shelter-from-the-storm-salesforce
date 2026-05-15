@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Caller_Email__c</fullName>
+    <description>Email address the caller used or provided. Mutually exclusive with Caller_Phone__c — the website quick-intake form has a single "phone or email" field, and the Netlify Function routes the value here when it contains '@'.</description>
+    <externalId>false</externalId>
+    <label>Caller Email</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Email</type>
+</CustomField>
