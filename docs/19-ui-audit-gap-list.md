@@ -71,12 +71,13 @@ These show on every Day-7 + Phase-1 record page's action bar. They make no sense
 
 ## P2 — Workflow polish
 
-**🟡 P2 PARTIALLY SHIPPED 2026-05-15 (overnight push, after P1):**
+**✅ P2 FULLY SHIPPED 2026-05-15 (overnight push, after P1):**
 - ✅ P2.1 — 2 Contact list views shipped (Survivors_Needing_Followup, All_Survivors_Hide_TRAINING). Currently_In_Shelter + High_Risk views already existed on Shelter_Stay__c + Danger_Assessment__c.
-- ✅ P2.2 — 2 Hotline_Call list views shipped (Awaiting_Callback, This_Week_Calls). Open_Calls_Today + High_Risk_Calls already existed.
+- ✅ P2.2 — 2 Hotline_Call list views shipped (Awaiting_Callback, This_Week_Calls). Awaiting_Callback filter later corrected to use Phone_Safe_To_Return + Intake_Initiated + Outcome NOT IN [Hung Up, No Action]. Open_Calls_Today + High_Risk_Calls already existed.
+- ✅ P2.3 — Per-object Log_Case_Note quick actions BUILT. Added 4 lookups on Case_Note__c (Hotline_Call, Shelter_Stay, FC, SSM), 4 quick actions, a Before-Save Flow that auto-fills Contact from any of the parent lookups, surfaced quick action at sortOrder 0 on each parent layout, and added Case_Notes related list to each parent layout. FLS granted via SFTS_Advocate + SFTS_Build_All_Access permsets. Flow activated in prod.
 - ✅ P2.4 — Contact quick action reordering already done as part of P0.4.
-- 🚫 P2.3 — DEFERRED. Per-object quick actions for Hotline_Call/Shelter_Stay/FC/SSM/etc. require adding Hotline_Call__c, Shelter_Stay__c, etc. lookups on Case_Note__c so quick actions can use targetParentField to auto-fill the Contact. That's a small schema change + repoint of existing flows. Best done in daytime build, not overnight, because it can cascade through Case_Note auto-fill flows.
-- ⏭️ P2.5 / P2.6 / P2.7 — out of scope for build (P2.5 is per-user pinning docs, P2.6 is optional layout density, P2.7 is data quality).
+- ✅ P2.6 — Danger Assessment 20 questions reorganized into 5 thematic sections (Severity & Sexual Violence, Lethality Indicators, Coercive Control & Substance Use, Stalking & Separation Risk, Suicide Threats).
+- ⏭️ P2.5 / P2.7 — out of scope for build (P2.5 is per-user pinning docs, P2.7 is data quality).
 
 These would meaningfully improve advocate experience but aren't blockers.
 
@@ -108,7 +109,7 @@ Per Daniel's note: each of the 15 resources should have its contact info verifie
 **🟡 P3 PARTIALLY SHIPPED 2026-05-15 (overnight push, after P2):**
 - ✅ P3.2 — Home page expanded with 3 new cards: New Web Intakes (24h), Awaiting Callback, Survivors Needing Follow-up. Total cards now 7 (up from 4).
 - ✅ P3.4 — Intake_Auto_Task_Templates Flow expanded from 3 → 8 profiles. New: Shelter Intake (Shelter_Requested=true, High/today), Danger Assessment (Risk_Level=High, High/today), Bank Account (no/unsafe-joint, +5d), Childcare CCDF (need help, +3d), Transportation (walking/unreliable, +5d). Each task carries deep SFTS-specific context in the Description.
-- 🚫 P3.1 (reports/dashboards) — not started overnight. Per docs/14, the realistic path is UI-build then retrieve since report metadata XML is brittle. Best handled by Daniel + Lana together.
+- 🚫 P3.1 (reports/dashboards) — RETRIED 2026-05-15 overnight; metadata path STILL fails with "invalid report type" (same error docs/14 warned about). Confirmed: must be UI-built then retrieved. Best handled by Daniel + Lana together via Setup → Reports.
 - 🚫 P3.3 (custom Intake FlexiPage) — not started overnight. Heavy lift, needs Lana's input on field grouping priorities.
 
 Would unlock new capabilities but not part of fixing what we built.

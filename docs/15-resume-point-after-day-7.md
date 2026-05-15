@@ -68,9 +68,21 @@ End of Day 8, Daniel + Claude did a tab-by-tab UI audit and discovered **the bui
 - **Contact page hides ALL SFTS demographics + rollups** (VOCA, Indiana, caseman, Days_Since_Last_Contact, etc.)
 - **Tasks have WhatId but no WhoId** — don't surface on Contact's Activity panel
 
-**[docs/19-ui-audit-gap-list.md](19-ui-audit-gap-list.md) is the master gap list** with priorities P0-P3 and estimated effort. Recommended first thing in next session: knock out the 5 P0 items in ~3 hours, then bundle P1 layout fixes into one big deploy.
+**[docs/19-ui-audit-gap-list.md](19-ui-audit-gap-list.md) is the master gap list** with priorities P0-P3 and estimated effort.
 
-All P0 + P1 work is pure metadata (layout XML edits + 1 Flow update). No Apex, no schema changes.
+### 🟢 OVERNIGHT 2026-05-15 ADDENDUM — gap list substantially complete
+
+**~6 hours of autonomous build through the gap list. Status:**
+- ✅ P0 — all 5 items shipped
+- ✅ P1 — all 10 items shipped
+- ✅ P2 — 6/7 items shipped (P2.5 docs-only, P2.7 data-quality skipped). Includes the P2.3 schema work I originally said needed daytime: 4 new lookups on Case_Note__c (Hotline_Call, Shelter_Stay, FC, SSM), per-object Log_Case_Note quick actions, Before-Save Flow auto-filling Contact, FLS granted via permsets.
+- 🟡 P3 — 2/4 items shipped (P3.2 Home page expanded 4→7 cards, P3.4 Auto-task templates expanded 3→8 profiles).
+  - **P3.1 (reports/dashboards)** RETRIED with metadata — same "invalid report type" error as before. Confirmed: must be UI-built per docs/14.
+  - **P3.3 (custom Intake FlexiPage)** deferred — needs Lana's input on what to surface above-the-fold.
+
+**Full overnight summary in [docs/21-day-8-overnight-push-wrap.md](21-day-8-overnight-push-wrap.md).** Includes the 5-min smoke-test sequence to verify everything is live in prod.
+
+All schema additions tonight: 4 lookup fields on Case_Note__c (Hotline_Call/Shelter_Stay/FC/SSM, all SetNull, all FLS-granted). All Flow changes activated in prod via Tooling REST PATCH per the SFTS Flow activation gotcha.
 
 ---
 
