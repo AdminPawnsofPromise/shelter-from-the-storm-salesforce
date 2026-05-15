@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Note_Type__c</fullName>
+    <description>What kind of interaction this note documents. Drives reporting (e.g., "how many in-person visits this month").</description>
+    <label>Note Type</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Phone Contact</fullName>
+                <default>false</default>
+                <label>Phone Contact</label>
+            </value>
+            <value>
+                <fullName>In-Person</fullName>
+                <default>false</default>
+                <label>In-Person</label>
+            </value>
+            <value>
+                <fullName>Collateral Contact</fullName>
+                <default>false</default>
+                <label>Collateral Contact</label>
+            </value>
+            <value>
+                <fullName>Service Provided</fullName>
+                <default>false</default>
+                <label>Service Provided</label>
+            </value>
+            <value>
+                <fullName>Court</fullName>
+                <default>false</default>
+                <label>Court</label>
+            </value>
+            <value>
+                <fullName>Case Conference</fullName>
+                <default>false</default>
+                <label>Case Conference</label>
+            </value>
+            <value>
+                <fullName>Email/Text</fullName>
+                <default>false</default>
+                <label>Email/Text</label>
+            </value>
+            <value>
+                <fullName>Safety Plan Review</fullName>
+                <default>false</default>
+                <label>Safety Plan Review</label>
+            </value>
+            <value>
+                <fullName>Closing Note</fullName>
+                <default>false</default>
+                <label>Closing Note</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

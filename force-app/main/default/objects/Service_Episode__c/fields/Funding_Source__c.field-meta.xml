@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Funding_Source__c</fullName>
+    <description>Which grant or funding source this service is billed against. Required if VOCA_Eligible is true.</description>
+    <label>Funding Source</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>VOCA</fullName>
+                <default>true</default>
+                <label>VOCA</label>
+            </value>
+            <value>
+                <fullName>FVPSA</fullName>
+                <default>false</default>
+                <label>FVPSA</label>
+            </value>
+            <value>
+                <fullName>BRCF</fullName>
+                <default>false</default>
+                <label>BRCF</label>
+            </value>
+            <value>
+                <fullName>Hancock County</fullName>
+                <default>false</default>
+                <label>Hancock County</label>
+            </value>
+            <value>
+                <fullName>Private Donation</fullName>
+                <default>false</default>
+                <label>Private Donation</label>
+            </value>
+            <value>
+                <fullName>Other Grant</fullName>
+                <default>false</default>
+                <label>Other Grant</label>
+            </value>
+            <value>
+                <fullName>Unfunded</fullName>
+                <default>false</default>
+                <label>Unfunded</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -525,6 +525,33 @@
         <field>Danger_Assessment__c.Total_Score__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Note__c.Intake__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Note__c.Subject__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Note__c.Body__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Note__c.Duration_Minutes__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Note__c.Advocate__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Note__c.Confidential__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Service_Episode__c.Intake__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Service_Episode__c.Service_Subtype__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Service_Episode__c.Hours_Spent__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Service_Episode__c.VOCA_Eligible__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Service_Episode__c.Funding_Source__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Service_Episode__c.Notes__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Service_Episode__c.Advocate__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Service_Episode__c.Outcome__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Plan__c.Plan_Status__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Plan__c.Target_Exit_Date__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Plan__c.Plan_Notes__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Plan__c.Author__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Goal__c.Goal_Statement__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Goal__c.Domain__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Goal__c.Target_Date__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Goal__c.Progress_Status__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Goal__c.Progress_Notes__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Case_Goal__c.Achieved_Date__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Contact.Last_Contact_Date__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>false</editable><field>Contact.Days_Since_Last_Contact__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Contact.Total_Service_Hours__c</field><readable>true</readable></fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>SFTS Advocate</label>
     <license>Salesforce</license>
@@ -591,6 +618,42 @@
         <object>Shelter_Stay__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Case_Note__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Service_Episode__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Case_Plan__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Case_Goal__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <tabSettings>
         <tab>Danger_Assessment__c</tab>
         <visibility>Visible</visibility>
@@ -617,6 +680,22 @@
     </tabSettings>
     <tabSettings>
         <tab>Shelter_Stay__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Case_Note__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Service_Episode__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Case_Plan__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Case_Goal__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>

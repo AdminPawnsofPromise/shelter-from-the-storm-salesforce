@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <description>Rollup helper: on Service_Episode__c insert (with Hours_Spent &gt; 0), add the episode's hours to the Contact.Total_Service_Hours__c lifetime total. V1: additive on insert only. V2 (future): recalc on update + delete via SOQL aggregation.</description>
+    <environments>Default</environments>
+    <interviewLabel>Service Episode → Contact Hours {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Service Episode — Update Contact Total Hours</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>176</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Contact</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Hours_Spent__c</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </filters>
+        <object>Service_Episode__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <recordLookups>
+        <name>Get_Contact</name>
+        <label>Get Contact</label>
+        <locationX>176</locationX>
+        <locationY>140</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Compute_New_Total</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Contact__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <assignments>
+        <name>Compute_New_Total</name>
+        <label>Compute new total</label>
+        <locationX>176</locationX>
+        <locationY>280</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Contact.Total_Service_Hours__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>NewTotal</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Contact</targetReference>
+        </connector>
+    </assignments>
+    <recordUpdates>
+        <name>Update_Contact</name>
+        <label>Save Contact</label>
+        <locationX>176</locationX>
+        <locationY>420</locationY>
+        <inputReference>Get_Contact</inputReference>
+    </recordUpdates>
+    <formulas>
+        <name>NewTotal</name>
+        <dataType>Number</dataType>
+        <scale>2</scale>
+        <expression>IF(ISBLANK({!Get_Contact.Total_Service_Hours__c}), 0, {!Get_Contact.Total_Service_Hours__c}) + {!$Record.Hours_Spent__c}</expression>
+    </formulas>
+</Flow>

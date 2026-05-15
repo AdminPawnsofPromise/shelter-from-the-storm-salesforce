@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VOCA_This_Quarter</fullName>
+    <columns>NAME</columns>
+    <columns>Contact__c</columns>
+    <columns>Service_Type__c</columns>
+    <columns>Service_Date__c</columns>
+    <columns>Hours_Spent__c</columns>
+    <columns>Advocate__c</columns>
+    <columns>Outcome__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>VOCA_Eligible__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Service_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>THIS_QUARTER</value>
+    </filters>
+    <label>VOCA — This Quarter</label>
+</ListView>

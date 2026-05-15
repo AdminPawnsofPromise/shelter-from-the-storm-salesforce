@@ -20,6 +20,10 @@
     <tabs>Financial_Counseling__c</tabs>
     <tabs>Self_Sufficiency_Matrix__c</tabs>
     <tabs>Referral__c</tabs>
+    <tabs>Case_Note__c</tabs>
+    <tabs>Service_Episode__c</tabs>
+    <tabs>Case_Plan__c</tabs>
+    <tabs>Case_Goal__c</tabs>
     <tabs>standard-Case</tabs>
     <tabs>pmdm__Program__c</tabs>
     <tabs>pmdm__ServiceDelivery__c</tabs>

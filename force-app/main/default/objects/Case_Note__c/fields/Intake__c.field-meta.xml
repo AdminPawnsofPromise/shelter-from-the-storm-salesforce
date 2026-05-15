@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Intake__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Optional link to the Intake/case this note relates to. Use to group notes by case lifecycle when a Contact has multiple intakes over time.</description>
+    <label>Intake</label>
+    <referenceTo>caseman__Intake__c</referenceTo>
+    <relationshipLabel>Case Notes</relationshipLabel>
+    <relationshipName>Case_Notes</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

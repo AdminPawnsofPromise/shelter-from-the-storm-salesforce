@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Open_Goals_Due_Soon</fullName>
+    <columns>NAME</columns>
+    <columns>Case_Plan__c</columns>
+    <columns>Domain__c</columns>
+    <columns>Progress_Status__c</columns>
+    <columns>Target_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Progress_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Achieved,Discontinued</value>
+    </filters>
+    <filters>
+        <field>Target_Date__c</field>
+        <operation>lessOrEqual</operation>
+        <value>NEXT_N_DAYS:30</value>
+    </filters>
+    <label>Open Goals Due Soon</label>
+</ListView>

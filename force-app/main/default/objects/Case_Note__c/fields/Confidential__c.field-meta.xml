@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Confidential__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Flag notes containing especially sensitive content (e.g., medical, attorney-privileged, custody-related). UI hint only — does not auto-restrict sharing; that's controlled by sharing rules.</description>
+    <label>Confidential</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

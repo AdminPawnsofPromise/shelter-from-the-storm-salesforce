@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Goal_Statement__c</fullName>
+    <description>The SMART goal in the survivor's own framing. Example: "Secure protective order by 2026-08-15."</description>
+    <label>Goal Statement</label>
+    <length>32000</length>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

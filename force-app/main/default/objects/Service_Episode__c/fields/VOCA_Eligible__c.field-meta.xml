@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VOCA_Eligible__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Whether this service counts toward VOCA federal grant reporting. Default true; uncheck for services explicitly outside VOCA scope (e.g., perpetrator-facing services, fundraising-related interactions).</description>
+    <label>VOCA Eligible</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

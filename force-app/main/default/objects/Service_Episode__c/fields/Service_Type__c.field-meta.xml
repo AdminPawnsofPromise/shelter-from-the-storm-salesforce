@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Type__c</fullName>
+    <description>VOCA-aligned service category. Drives federal grant reporting — pick the closest match. Free-text specifics go in Service_Subtype__c.</description>
+    <label>Service Type</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Crisis Intervention</fullName>
+                <default>false</default>
+                <label>Crisis Intervention</label>
+            </value>
+            <value>
+                <fullName>Counseling — Individual</fullName>
+                <default>false</default>
+                <label>Counseling — Individual</label>
+            </value>
+            <value>
+                <fullName>Counseling — Group</fullName>
+                <default>false</default>
+                <label>Counseling — Group</label>
+            </value>
+            <value>
+                <fullName>Safety Planning</fullName>
+                <default>false</default>
+                <label>Safety Planning</label>
+            </value>
+            <value>
+                <fullName>Court Accompaniment</fullName>
+                <default>false</default>
+                <label>Court Accompaniment</label>
+            </value>
+            <value>
+                <fullName>Legal Advocacy</fullName>
+                <default>false</default>
+                <label>Legal Advocacy</label>
+            </value>
+            <value>
+                <fullName>Personal Advocacy</fullName>
+                <default>false</default>
+                <label>Personal Advocacy</label>
+            </value>
+            <value>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+                <label>Transportation</label>
+            </value>
+            <value>
+                <fullName>Material Aid</fullName>
+                <default>false</default>
+                <label>Material Aid</label>
+            </value>
+            <value>
+                <fullName>Emergency Shelter</fullName>
+                <default>false</default>
+                <label>Emergency Shelter</label>
+            </value>
+            <value>
+                <fullName>Children's Support</fullName>
+                <default>false</default>
+                <label>Children's Support</label>
+            </value>
+            <value>
+                <fullName>Information &amp; Referral</fullName>
+                <default>false</default>
+                <label>Information &amp; Referral</label>
+            </value>
+            <value>
+                <fullName>Mental Health Referral</fullName>
+                <default>false</default>
+                <label>Mental Health Referral</label>
+            </value>
+            <value>
+                <fullName>Medical Accompaniment</fullName>
+                <default>false</default>
+                <label>Medical Accompaniment</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

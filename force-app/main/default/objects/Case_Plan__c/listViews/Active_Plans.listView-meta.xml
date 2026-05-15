@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Plans</fullName>
+    <columns>NAME</columns>
+    <columns>Contact__c</columns>
+    <columns>Plan_Status__c</columns>
+    <columns>Plan_Date__c</columns>
+    <columns>Target_Exit_Date__c</columns>
+    <columns>Author__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Plan_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <label>Active Plans</label>
+</ListView>

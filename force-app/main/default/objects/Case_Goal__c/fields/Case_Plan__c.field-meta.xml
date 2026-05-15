@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Plan__c</fullName>
+    <description>Parent Case Plan. Master-detail — goals are deleted when the plan is.</description>
+    <label>Case Plan</label>
+    <referenceTo>Case_Plan__c</referenceTo>
+    <relationshipLabel>Case Goals</relationshipLabel>
+    <relationshipName>Case_Goals</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

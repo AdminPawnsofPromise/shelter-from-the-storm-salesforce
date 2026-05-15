@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Contact_Date__c</fullName>
+    <description>Most recent Case_Note interaction date for this Contact. Maintained by the Case_Note insert Flow. Powers Days_Since_Last_Contact + "stale cases" list views.</description>
+    <externalId>false</externalId>
+    <label>Last Contact Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

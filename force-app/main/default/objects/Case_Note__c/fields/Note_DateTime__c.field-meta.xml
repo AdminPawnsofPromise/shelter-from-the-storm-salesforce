@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Note_DateTime__c</fullName>
+    <defaultValue>NOW()</defaultValue>
+    <description>When this interaction happened (not when the note was written — back-dated entries are fine).</description>
+    <label>Interaction Date/Time</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>
