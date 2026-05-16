@@ -70,6 +70,20 @@ End of Day 8, Daniel + Claude did a tab-by-tab UI audit and discovered **the bui
 
 **[docs/19-ui-audit-gap-list.md](19-ui-audit-gap-list.md) is the master gap list** with priorities P0-P3 and estimated effort.
 
+### 🟣 LANA WALKTHROUGH 2026-05-15 ADDENDUM — meeting follow-up
+
+After the overnight push, Daniel walked Lana through the entire system on a ~3.5h call. **All 22 follow-up items are catalogued in [docs/22-lana-walkthrough-2026-05-15-followup.md](22-lana-walkthrough-2026-05-15-followup.md)** — that's the master to-do list now. Critical context for next session:
+
+- **Lana now has Whisper Flow** installed and uses it for typing — workflow docs should reflect this
+- **Brittany (clientadvocate@sftsinc.com)** is the next user to onboard — has SFTS_Advocate permset already
+- **June 15, 2026 board meeting** — Daniel presents 20-25 min demo + ask for $2,500 quarterly contract
+- **5 highest-leverage immediate fixes:** B1 (web form email validation), B2 (name doubling), B3 (caseman $360 refund investigation), B4 (search fix), B10 (text-thread safety template)
+- **$360 caseman package** is the financial loose thread — may require migrating off `caseman__Intake__c` to a custom Intake__c (heavy lift) OR confirming it's free under Power of Us
+- **Reports/dashboards (P3.1)** still need UI build — deferred per docs/14 brittleness note
+- **Custom Intake FlexiPage (P3.3)** — Lana's homework: tell Daniel which fields she scans first
+
+---
+
 ### 🟢 OVERNIGHT 2026-05-15 ADDENDUM — gap list substantially complete
 
 **~6 hours of autonomous build through the gap list. Status:**

@@ -128,14 +128,48 @@ Current template Flow has 3 starter profiles (No ID / No Insurance / Unemployed-
 
 ---
 
+---
+
+## P4 — Post-Lana-walkthrough refinements (2026-05-15 meeting)
+
+After Lana walked through the system on 2026-05-15, surfaced 22 new technical items. **Master list lives in [docs/22-lana-walkthrough-2026-05-15-followup.md](22-lana-walkthrough-2026-05-15-followup.md)** (sections A–G). Quick index of the build queue:
+
+- **P4.1 (B1) — Web form email validation + redirect on failure** — fix silent rejection when email has whitespace
+- **P4.2 (B2) — Web form first-name-only handling** — replace "double the name" workaround with `LastName="(unknown)"`
+- **P4.3 (B3) — Caseman managed package $360 investigation** — refund pursuit; possible custom Intake__c migration
+- **P4.4 (B4) — Global search not surfacing custom-object records** — Lana hits this every session
+- **P4.5 (B5) — Reorder app tabs to match Lana's workflow** — blocked on her input
+- **P4.6 (B6) — Audit Event_Type picklist** on Fundraising_Event__c
+- **P4.7 (B7) — Add Stay_Type__c picklist** on Shelter_Stay (Owned / Hotel / Partner / Transitional)
+- **P4.8 (B8) — Concurrent edit warning** — verify "Now Viewing" is on
+- **P4.9 (B9) — Mandatory Report triggering events as controlled picklist**
+- **P4.10 (B10) — Text-thread deletion guidance** — Resource catalog entry, possible LWC quick action upgrade later
+- **P4.11 (B11) — Owner ID UX polish** on auto-created records
+- **P4.12 (B12) — Hotline_Call concept rework** — relabel + workflow doc, no schema refactor
+- **P4.13 (B13) — Hotel-stay CYA contract generation** — Visualforce PDF on Shelter_Stay save
+- **P4.14 (B14) — Resource link verification** — scheduled HTTP-callout Flow + new Link_Status__c field
+- **P4.15 (B15) — Board member task assignment UI** — set up board-member users on free Power of Us licenses
+- **P4.16 (B16) — Recurring touch-base reminders** for board member tasks
+- **P4.17 (B17) — Donor acknowledgment letter automation** — IRS 990 compliance
+- **P4.18 (B18) — Fact-sheet export** for grant applications
+- **P4.19 (B19) — Weekly grant rhythm dashboard** (depends on P3.1 reports being UI-built first)
+- **P4.20 (B20) — Brittany onboarding** — user setup + permset assignment + walkthrough
+- **P4.21 (B21) — TRAINING records cleanup workflow** — anonymous Apex script
+- **P4.22 (B22) — HIPAA permset audit** — verify SFTS_Fundraiser has zero case-data visibility
+
+**Recommended next-session priority order** (~7 hours): B1, B2, B3, B4, B6, B7, B9, B10, B11, B12, B22, B8.
+
+---
+
 ## Estimated effort per priority
 
-| Priority | Items | Estimated effort |
-|---|---|---|
-| P0 | 5 items | ~3 hours (mostly layout edits + 1 Flow update) |
-| P1 | 10 items | ~4 hours (mostly layout edits per object) |
-| P2 | 7 items | ~6 hours (new list views, compact layouts, quick actions) |
-| P3 | 4 items | Multi-session (reports, dashboards, FlexiPage rebuild) |
+| Priority | Items | Estimated effort | Status |
+|---|---|---|---|
+| P0 | 5 items | ~3 hours (mostly layout edits + 1 Flow update) | ✅ Shipped 2026-05-15 |
+| P1 | 10 items | ~4 hours (mostly layout edits per object) | ✅ Shipped 2026-05-15 |
+| P2 | 7 items | ~6 hours (new list views, compact layouts, quick actions) | ✅ 6/7 shipped, P2.5/P2.7 docs/data |
+| P3 | 4 items | Multi-session (reports, dashboards, FlexiPage rebuild) | 🟡 P3.2 + P3.4 shipped; P3.1 + P3.3 deferred |
+| **P4** | **22 items** (post-Lana-walkthrough) | ~12 hours small/medium + 3-6 hours each for big ones (B13/B17/B18/B19) | 🔨 Queued — see [docs/22](22-lana-walkthrough-2026-05-15-followup.md) |
 
 **Recommended fix order for next session:**
 1. Knock out all P0 (3 hours) — gets advocate workflow functional
